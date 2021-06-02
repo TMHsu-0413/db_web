@@ -49,6 +49,6 @@ export default {
 }
 .header{
   flex-basis: 6%;
-  background-color:rgb(208, 217, 221);
+  background-color:rgb(208, 217, 221,.3);
 }
 </style>

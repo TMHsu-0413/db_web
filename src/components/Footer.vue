@@ -38,6 +38,5 @@ export default {
 }
 .footer{
   flex-basis: 5%;
-  background-color: rgb(233, 169, 169);
 }
 </style>
