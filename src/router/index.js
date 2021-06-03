@@ -2,6 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../Views/Home.vue'
 import Login from '../Views/Login.vue'
+import Rigister from '../Views/Rigister.vue'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -10,13 +12,17 @@ const routes = [
         name: 'Home',
         component: Home,
         children: [
-            {path: '/aaa', component: () => import('../Views/aaa.vue')},
-            {path: '/bbb', component: () => import('../Views/bbb.vue')}
+            {path: '/Rigister', component: () => import('../Views/Rigister.vue')}
         ]
     },
     {
         path:'/login',
         component: Login
+
+    },
+    {
+        path:'/Rigister',
+        component: Rigister
     }
 ]
 
