@@ -31,7 +31,7 @@
           <h2 class="label">聯絡地址</h2>
         </div>
       </div>
-      <button class="btn">登入</button>
+      <button class="btn">註冊</button>
     </div>
   </div>
 </template>
@@ -65,13 +65,14 @@ export default {
   padding:2rem 1rem;
   border-radius: 10px;
   width:30vw;
-  height: 50vh;
+  height: 58vh;
   background-color: rgba(255,255,255,.45);
   border: 2px solid rgba(17, 223, 238, 0.4);
   border-image-slice: 1;
   display: flex;
   flex-direction: column;
   animation: fadein 1s;
+  
 }
 .flex-row{
   display: flex;

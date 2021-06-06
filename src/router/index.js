@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
-import Homepage from '../views/Homepage.vue'
-
+import Home from '../Views/Home.vue'
+import Homepage from '../Views/Homepage.vue'
+import UploadPost from '../Views/UploadPost.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -16,7 +16,11 @@ const routes = [
     {
         path:'/Homepage',
         component: Homepage
+    },
 
+    {
+        path:'/UploadPost',
+        component: UploadPost
     }
 ]
 
