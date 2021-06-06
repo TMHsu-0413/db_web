@@ -1,6 +1,7 @@
 <template>
   <div>
     <div class="bg"></div>
+    <button @click="CloseRegister"></button>
     <div class="form">
       <div class="type_block">
         <input type="text" v-model="Account" class="input" placeholder="帳號" />
@@ -47,6 +48,9 @@ export default {
       Phone: null,
       Mail: null
     }
+  },
+  props: {
+    CloseRegister: Function
   }
 }
 </script>

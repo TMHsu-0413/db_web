@@ -1,7 +1,6 @@
 <template>
-  <div>
-    <div class="bg"></div>
     <div class="form">
+      <div class="close"><button class="closebtn" @click='CloseLogin'>&times;</button></div>
       <div class="type_block">
         <input type="text" v-model="Account" class="input" placeholder="帳號" />
         <h2 class="label">帳號</h2>
@@ -12,11 +11,13 @@
       </div>
       <button class="btn">登入</button>
     </div>
-  </div>
 </template>
 
 <script>
 export default {
+  props: {
+    CloseLogin: Function
+  },
   data () {
     return {
       Account: null,
@@ -27,13 +28,6 @@ export default {
 </script>
 
 <style scoped>
-.bg{
-  position: relative;
-  background-image: linear-gradient(rgba(0,0,255,0.5),rgba(255,255,255,0.5)),url('../image/bg-3.jpg');
-  filter: blur(1px);
-  background-size: cover;
-  height: 100vh;
-}
 .form{
   position: absolute;
   padding:2rem 1rem;
@@ -41,17 +35,18 @@ export default {
   top:50%;
   left:50%;
   transform: translate(-50%,-50%);
-  width:20vw;
-  height: 40vh;
+  width:40vw;
+  height: 25vh;
   background-color: rgba(255,255,255,.4);
   border: 2px solid;
   border-image: linear-gradient(to bottom,rgba(255,255,255,.5),rgba(0,0,255,.5));
   border-image-slice: 1;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .type_block{
-  flex-basis: 40%;
+  flex-basis: 50%;
   display: flex;
   position: relative;
   flex-direction: column;
@@ -87,13 +82,14 @@ export default {
 }
 .btn{
   background-color: rgba(0,0,255,.4);
+  margin-top:4rem;
   color: white;
   width:50%;
   outline:0;
-  align-self: center;
   padding:.5rem 1rem;
   border-radius: 20px;
   transition: all .2s;
+  flex-basis: 40%;
 }
 .btn:hover{
   transform: translateY(-3px);
@@ -104,5 +100,16 @@ export default {
 .btn:focus{
   outline: none;
   border: none;
+}
+.close{
+  flex-basis: 100%;
+}
+.closebtn{
+  font-size: 1.5rem;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  margin-top:-1rem;
+  float: right;
 }
 </style>

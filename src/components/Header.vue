@@ -1,8 +1,6 @@
 <template>
   <div class="header">
     <button type="button" class="btn btn-primary"><strong>首頁</strong></button>
-    <button type="button" class="btn btn-enter"><strong>登入</strong></button>
-    <button type="button" class="btn btn-regi"><strong>註冊</strong></button>
   </div>
 </template>
 
