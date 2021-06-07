@@ -45,8 +45,8 @@ export default {
   position: absolute;
   padding:2rem 1rem;
   border-radius: 10px;
-  width:18vw;
-  height: 35vh;
+  width: auto;
+  height: auto;
   background-color: rgba(255,255,255,.45);
   border: 2px solid rgba(17, 223, 238, 0.4);
   border-image-slice: 1;
@@ -89,9 +89,9 @@ export default {
 .label{
   color:rgba(0,0,255,.7);
   position: absolute;
-  left:2.5rem;
-  top:-2rem;
-  font-size: 1.5rem;
+  left:1.8rem;
+  top:-1.8rem;
+  font-size: 1.2rem;
   transition: all .3s;
 }
 .btn{

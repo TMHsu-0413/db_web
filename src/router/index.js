@@ -3,6 +3,8 @@ import VueRouter from 'vue-router'
 import Home from '../Views/Home.vue'
 import Homepage from '../Views/Homepage.vue'
 import UploadPost from '../Views/UploadPost.vue'
+import MainPage from '../Views/MainPage.vue'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -21,6 +23,11 @@ const routes = [
     {
         path:'/UploadPost',
         component: UploadPost
+    },
+    
+    {
+        path:'/MainPage',
+        component: MainPage
     }
 ]
 
