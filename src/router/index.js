@@ -5,6 +5,7 @@ import Homepage from '../views/Homepage.vue'
 import UploadPost from '../views/UploadPost.vue'
 import MainPage from '../views/MainPage.vue'
 import ItemDetail from '../views/ItemDetail.vue'
+import Revise from '../views/Revise.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -13,9 +14,10 @@ const routes = [
         name: 'Home',
         component: Home,
         children: [
-           { path: '/UploadPost',component: UploadPost },
-           { path: '/MainPage',component: MainPage },
-           { path: '/ItemDetail',component: ItemDetail }
+            { path: '/UploadPost', component: UploadPost },
+            { path: '/MainPage', component: MainPage },
+            { path: '/ItemDetail', component: ItemDetail },
+            { path: '/Revise', component: Revise }
         ]
     },
     {

@@ -8,42 +8,42 @@
         <h4>IKEA鯊魚</h4>
         <h5>刊登者:</h5>
       </div>
-      <div class="col-2 mid">
+      <div class="col-2 mid white">
         <a href="../ItemDetail">
           <img src="../image/shark.jpg" style="width: 10vw; height: 10vw" />
         </a>
         <h4>IKEA鯊魚</h4>
         <h5>刊登者:</h5>
       </div>
-      <div class="col-2 mid">
+      <div class="col-2 mid white">
         <a href="../ItemDetail">
           <img src="../image/shark.jpg" style="width: 10vw; height: 10vw" />
         </a>
         <h4>IKEA鯊魚</h4>
         <h5>刊登者:</h5>
       </div>
-      <div class="col-2 mid">
+      <div class="col-2 mid white">
         <a href="../ItemDetail">
           <img src="../image/shark.jpg" style="width: 10vw; height: 10vw" />
         </a>
         <h4>IKEA鯊魚</h4>
         <h5>刊登者:</h5>
       </div>
-      <div class="col-2 mid">
+      <div class="col-2 mid white">
         <a href="../ItemDetail">
           <img src="../image/shark.jpg" style="width: 10vw; height: 10vw" />
         </a>
         <h4>IKEA鯊魚</h4>
         <h5>刊登者:</h5>
       </div>
-      <div class="col-2 mid">
+      <div class="col-2 mid white">
         <a href="../ItemDetail">
           <img src="../image/shark.jpg" style="width: 10vw; height: 10vw" />
         </a>
         <h4>IKEA鯊魚</h4>
         <h5>刊登者:</h5>
       </div>
-      <div class="col-2">
+      <div class="col-2 mid white">
         <a href="../ItemDetail">
           <img src="../image/shark.jpg" style="width: 10vw; height: 10vw" />
         </a>
@@ -58,17 +58,17 @@
 <style scoped>
 .bg {
   position: relative;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
-    url("../image/bg-4.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
+    url("../image/bg-6.jpg");
   background-size: cover;
   height: 100vh;
   width: 100%;
-  padding:1rem;
+  padding: 1rem;
 }
-.white{
-  color:white;
+.white {
+  color: white;
 }
-.mid{
+.mid {
   display: flex;
   flex-direction: column;
   justify-content: center;
