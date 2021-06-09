@@ -1,71 +1,54 @@
 <template>
-  <div class="bg">
-    <div class="form container">
-      <div class="row">
-        <div class="col-2">
-          <a href="../ItemDetail">
-            <img src="../image/shark.jpg" style="width: 10vw; height: 10vw" />
-          </a>
-          <h4>IKEA鯊魚</h4>
-          <h5>刊登者:</h5>
-        </div>
-        <div class="col-2">
-          <img src="../image/shark1.jpg" style="width: 10vw; height: 10vw" />
-          <h4>鯊魚貼圖</h4>
-          <h5>刊登者:</h5>
-        </div>
-        <div class="col-2">
-          <img src="../image/shark2.png" style="width: 10vw; height: 10vw" />
-          <h4>鯊魚貼圖</h4>
-          <h5>刊登者:</h5>
-        </div>
-        <div class="col-2">
-          <img src="../image/shark3.jpg" style="width: 10vw; height: 10vw" />
-          <h4>鯊魚貼圖</h4>
-          <h5>刊登者:</h5>
-        </div>
-        <div class="col-2">
-          <img src="../image/shark4.png" style="width: 10vw; height: 10vw" />
-          <h4>鯊魚貼圖</h4>
-          <h5>刊登者:</h5>
-        </div>
-        <div class="col-2">
-          <img src="../image/shark5.png" style="width: 10vw; height: 10vw" />
-          <h4>鯊魚貼圖</h4>
-          <h5>刊登者:</h5>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-2">
+  <div class="container-fluid bg">
+    <div class="row">
+      <div class="col-2 mid white">
+        <a href="../ItemDetail">
           <img src="../image/shark.jpg" style="width: 10vw; height: 10vw" />
-          <h4>IKEA鯊魚</h4>
-          <h5>刊登者:</h5>
-        </div>
-        <div class="col-2">
-          <img src="../image/shark1.jpg" style="width: 10vw; height: 10vw" />
-          <h4>鯊魚貼圖</h4>
-          <h5>刊登者:</h5>
-        </div>
-        <div class="col-2">
-          <img src="../image/shark2.png" style="width: 10vw; height: 10vw" />
-          <h4>鯊魚貼圖</h4>
-          <h5>刊登者:</h5>
-        </div>
-        <div class="col-2">
-          <img src="../image/shark3.jpg" style="width: 10vw; height: 10vw" />
-          <h4>鯊魚貼圖</h4>
-          <h5>刊登者:</h5>
-        </div>
-        <div class="col-2">
-          <img src="../image/shark4.png" style="width: 10vw; height: 10vw" />
-          <h4>鯊魚貼圖</h4>
-          <h5>刊登者:</h5>
-        </div>
-        <div class="col-2">
-          <img src="../image/shark5.png" style="width: 10vw; height: 10vw" />
-          <h4>鯊魚貼圖</h4>
-          <h5>刊登者:</h5>
-        </div>
+        </a>
+        <h4>IKEA鯊魚</h4>
+        <h5>刊登者:</h5>
+      </div>
+      <div class="col-2 mid">
+        <a href="../ItemDetail">
+          <img src="../image/shark.jpg" style="width: 10vw; height: 10vw" />
+        </a>
+        <h4>IKEA鯊魚</h4>
+        <h5>刊登者:</h5>
+      </div>
+      <div class="col-2 mid">
+        <a href="../ItemDetail">
+          <img src="../image/shark.jpg" style="width: 10vw; height: 10vw" />
+        </a>
+        <h4>IKEA鯊魚</h4>
+        <h5>刊登者:</h5>
+      </div>
+      <div class="col-2 mid">
+        <a href="../ItemDetail">
+          <img src="../image/shark.jpg" style="width: 10vw; height: 10vw" />
+        </a>
+        <h4>IKEA鯊魚</h4>
+        <h5>刊登者:</h5>
+      </div>
+      <div class="col-2 mid">
+        <a href="../ItemDetail">
+          <img src="../image/shark.jpg" style="width: 10vw; height: 10vw" />
+        </a>
+        <h4>IKEA鯊魚</h4>
+        <h5>刊登者:</h5>
+      </div>
+      <div class="col-2 mid">
+        <a href="../ItemDetail">
+          <img src="../image/shark.jpg" style="width: 10vw; height: 10vw" />
+        </a>
+        <h4>IKEA鯊魚</h4>
+        <h5>刊登者:</h5>
+      </div>
+      <div class="col-2">
+        <a href="../ItemDetail">
+          <img src="../image/shark.jpg" style="width: 10vw; height: 10vw" />
+        </a>
+        <h4>IKEA鯊魚</h4>
+        <h5>刊登者:</h5>
       </div>
     </div>
   </div>
@@ -80,11 +63,17 @@
   background-size: cover;
   height: 100vh;
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding:1rem;
 }
-
+.white{
+  color:white;
+}
+.mid{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .form {
   position: relative;
   padding: 2rem 2rem;

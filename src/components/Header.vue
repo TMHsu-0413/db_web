@@ -16,7 +16,7 @@
             <router-link to="/MainPage" class="nav-link" aria-current="page">首頁</router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/MainPage" class="nav-link">審核交換</router-link>
+            <router-link to="/MainPage" class="nav-link">審核貼文</router-link>
           </li>
           <li class="nav-item">
             <router-link to="/MainPage" class="nav-link">修改個人資料</router-link>
