@@ -1,42 +1,37 @@
 <template>
-  <div class="footer">
-    <button type="button" class="btn btn-touch"><strong>今日瀏覽量</strong></button>
-    <button type="button" class="btn btn-contact"><strong>聯絡拎北</strong></button>
-  </div>
+  <footer class="footer mt-auto py-3 bg-light bg-dark">
+    <div class="container-fluid flex">
+      <span class="text-muted">Copyright &copy; 2021 NFU CSIE. All Rights Reserved</span>
+      <span class="text-muted ml-auto">進站人數:10</span>
+      <span class="ml-3"><a href="http://www.csie.nfu.edu.tw/zh/" class="text-muted href">聯絡我們</a></span>
+    </div>
+</footer>
 </template>
 
 <script>
 export default {
   name: 'HelloWorld',
-  props: {
-    msg: String
-  }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.btn-touch {
-  color: #000;
-  background-color: rgb(233, 169, 169);
-  border-color: rgb(233, 169, 169);
+.flex{
+  display: flex;
 }
-.btn-touch:hover, .btn-touch:focus, .btn-touch:active:hover{
-  color: #000;
-  background-color: rgb(124, 124, 207);
-  border-color: rgb(124, 124, 207);
+.ml-auto{
+  margin-left:auto;
 }
-.btn-contact {
-  color: #000;
-  background-color: rgb(233, 169, 169);
-  border-color: rgb(233, 169, 169);
+.ml-3{
+  margin-left:3%;
 }
-.btn-contact:hover, .btn-contact:focus, .btn-contact:active:hover{
-  color: #000;
-  background-color: rgb(136, 240, 145);
-  border-color: rgb(136, 240, 145);
+.r5{
+  right:5rem;
 }
-.footer{
-  flex-basis: 5%;
+.white{
+  color:white;
+}
+.href{
+  text-decoration: none;
 }
 </style>

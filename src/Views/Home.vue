@@ -1,5 +1,5 @@
 <template>
-  <div class="Flex">
+  <div>
     <Header></Header>
     <Content></Content>
     <Footer></Footer>
@@ -19,8 +19,6 @@ export default {
 
 <style>
 .Flex{
-  background-image: linear-gradient(rgba(0,0,255,0.5),rgba(255,255,255,0.5)),url('../image/bg-3.jpg');
-  background-size: cover;
   display: flex;
   height: 100vh;
   justify-content: space-between;

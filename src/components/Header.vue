@@ -1,72 +1,80 @@
 <template>
-  <header class="p-3 bg-dark text-white">
-    <div class="container">
-      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+  <nav class="navbar navbar-expand navbar-dark bg-dark" aria-label="Second navbar example">
+    <div v-if="OpenR" class="bg100">
+      <Register :CloseRegister="CloseRegister"></Register>
+    </div>
 
-        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="#" class="nav-link px-2 text-secondary">首頁</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">Features</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">Pricing</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">About</a></li>
+    <div class="container-fluid">
+      <router-link to="/MainPage" class="navbar-brand">易物媒合系統</router-link>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExample02">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <router-link to="/MainPage" class="nav-link" aria-current="page">首頁</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/MainPage" class="nav-link">審核交換</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/MainPage" class="nav-link">修改個人資料</router-link>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link cursor" @click="Reg">新增管理者</a>
+          </li>
         </ul>
-
-        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-          <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
-        </form>
-
-        <div class="text-end">
-          <button type="button" class="btn btn-outline-light me-2">Login</button>
-          <button type="button" class="btn btn-warning">Sign-up</button>
+        <div class="nav-item">
+          <button class="nav-link btn">登出</button>
         </div>
       </div>
     </div>
-  </header>
+  </nav>
 </template>
 
 <script>
+import Register from './Register'
 export default {
   name: 'HelloWorld',
-  props: {
-    msg: String
+  data () {
+    return {
+      OpenR: false
+    }
+  },
+  methods: {
+    Reg () {
+      this.OpenR = true
+    },
+    CloseRegister() {
+      this.OpenR = false
+    }
+  },
+  components: {
+    Register
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.btn-primary {
-  color: #000;
-  background-color: rgb(208, 217, 221);
-  border-color: rgb(208, 217, 221);
+.btn{
+  background-color: transparent;
+  color: white;
 }
-.btn-primary:hover, .btn-primary:focus, .btn-primary:active:hover{
-  color: #000;
-  background-color: rgb(124, 124, 207);
-  border-color: rgb(124, 124, 207);
+.bg100{
+  background-color: rgba(0,0,0,.85);
+  position: fixed;
+  z-index: 10;
+  left:0;
+  top:0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:100%;
+  height: 100%;
 }
-.btn-enter {
-  color: #000;
-  background-color: rgb(208, 217, 221);
-  border-color: rgb(208, 217, 221);
-}
-.btn-enter:hover, .btn-enter:focus, .btn-enter:active:hover{
-  color: #000;
-  background-color: rgb(209, 235, 65);
-  border-color: rgb(209, 235, 65);
-}
-.btn-regi {
-  color: #000;
-  background-color: rgb(208, 217, 221);
-  border-color: rgb(208, 217, 221);
-}
-.btn-regi:hover, .btn-regi:focus, .btn-regi:active:hover{
-  color: #000;
-  background-color: rgb(116, 231, 112);
-  border-color: rgb(116, 231, 112);
-}
-.header{
-  flex-basis: 6%;
-  background-color:rgb(208, 217, 221,.3);
+.cursor{
+  cursor: pointer;
 }
 </style>

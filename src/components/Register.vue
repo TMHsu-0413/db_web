@@ -3,32 +3,57 @@
     <div class="form">
       <div class="close"><button class="closebtn" @click='CloseRegister'>&times;</button></div>
       <div class="flex-row">
-        <div class="type_block fbasis50">
-          <input type="text" v-model="Account" class="input w80" placeholder="帳號" />
-          <h2 class="label">帳號</h2>
-        </div>
-        <div class="type_block fbasis50">
-          <input type="text" v-model="Name" class="input w80" placeholder="用戶姓名" />
-          <h2 class="label">用戶姓名</h2>
-        </div>
-        <div class="type_block fbasis50">
-          <input type="password" v-model="Password" class="input w80" placeholder="密碼" />
-          <h2 class="label">密碼</h2>
-        </div>
-        <div class="type_block fbasis50">
-          <input type="password" v-model="ConPassword" class="input w80" placeholder="再輸入一次密碼" />
-        </div>
-        <div class="type_block fbasis50">
-          <input type="text" v-model="Phone" class="input w80" placeholder="聯絡電話" />
-          <h2 class="label">聯絡電話</h2>
-        </div>
-        <div class="type_block fbasis50">
-          <input type="text" v-model="Email" class="input w80" placeholder="E-mail" />
-          <h2 class="label">E-mail</h2>
-        </div>
-        <div class="type_block fbasis100">
-          <input type="text" v-model="Address" class="input w90" placeholder="聯絡地址" />
-          <h2 class="label">聯絡地址</h2>
+        <div class="container">
+          <div class="row mt-4 mb-4">
+            <div class="col">
+              <div class="type_block fbasis50">
+                <input type="text" v-model="Account" class="input w80" placeholder="帳號" />
+                <h2 class="label">帳號</h2>
+              </div>
+            </div>
+            <div class="col">
+              <div class="type_block fbasis50">
+                <input type="text" v-model="Name" class="input w80" placeholder="用戶姓名" />
+                <h2 class="label">用戶姓名</h2>
+              </div>
+            </div>
+          </div>
+          <div class="row mt-4 mb-4">
+            <div class="col">
+              <div class="type_block fbasis50">
+                <input type="password" v-model="Password" class="input w80" placeholder="密碼" />
+                <h2 class="label">密碼</h2>
+              </div>
+            </div>
+            <div class="col">
+              <div class="type_block fbasis50">
+                <input type="password" v-model="ConPassword" class="input w80" placeholder="再輸入一次密碼" />
+                <h2 class="label">確認密碼</h2>
+              </div>
+            </div>
+          </div>
+          <div class="row mt-4 mb-4">
+            <div class="col">
+              <div class="type_block fbasis50">
+                <input type="text" v-model="Phone" class="input w80" placeholder="聯絡電話" />
+                <h2 class="label">聯絡電話</h2>
+              </div>
+            </div>
+            <div class="col">
+              <div class="type_block fbasis50">
+                <input type="text" v-model="Email" class="input w80" placeholder="E-mail" />
+                <h2 class="label">E-mail</h2>
+              </div>
+            </div>
+          </div>
+          <div class="row mt-4 mb-4">
+            <div class="col">
+              <div class="type_block fbasis50">
+                <input type="text" v-model="Address" class="input w90" placeholder="聯絡地址" />
+                <h2 class="label">聯絡地址</h2>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <button class="btn">註冊</button>
@@ -60,6 +85,8 @@ export default {
   from {opacity: 0; transform: translateY(100px);}
   to {opacity: 1; transform: translate(0);}
 }
+
+
 .flex{
   display: flex;
   justify-content: center;
@@ -69,8 +96,8 @@ export default {
   position: absolute;
   padding:2rem 1rem;
   border-radius: 10px;
-  width:30vw;
-  height: 58vh;
+  /*width: 30vw;
+  height: 58vh;*/
   background-color: rgba(255,255,255,.45);
   border: 2px solid rgba(17, 223, 238, 0.4);
   border-image-slice: 1;
@@ -123,9 +150,9 @@ export default {
 .label{
   color:rgba(0,0,255,.7);
   position: absolute;
-  left:2.5rem;
-  top:-2rem;
-  font-size: 1.2rem;
+  left:1.8rem;
+  top:-1.3rem;
+  font-size: 1rem;
   transition: all .3s;
 }
 .btn{
