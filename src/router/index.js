@@ -4,7 +4,7 @@ import Home from '../Views/Home.vue'
 import Homepage from '../Views/Homepage.vue'
 import UploadPost from '../Views/UploadPost.vue'
 import MainPage from '../Views/MainPage.vue'
-
+import ItemDetail from '../Views/ItemDetail.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -16,18 +16,20 @@ const routes = [
         ]
     },
     {
-        path:'/Homepage',
+        path: '/Homepage',
         component: Homepage
     },
-
     {
-        path:'/UploadPost',
+        path: '/UploadPost',
         component: UploadPost
     },
-    
     {
-        path:'/MainPage',
+        path: '/MainPage',
         component: MainPage
+    },
+    {
+        path: '/ItemDetail',
+        component: ItemDetail
     }
 ]
 
