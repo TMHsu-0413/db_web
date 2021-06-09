@@ -44,7 +44,12 @@ export default {
   data () {
     return {
       Account: null,
-      Password: null
+      Password: null,
+      Name: null,
+      ConPassword: null,
+      Phone: null,
+      Email: null,
+      Address: null
     }
   }
 }
@@ -72,7 +77,6 @@ export default {
   display: flex;
   flex-direction: column;
   animation: fadein 1s;
-  
 }
 .flex-row{
   display: flex;
