@@ -5,7 +5,8 @@ import User from '../views/User.vue'
 import Homepage from '../views/Homepage.vue'
 import MainPage from '../views/MainPage.vue'
 import ItemDetail from '../views/ItemDetail.vue'
-import Revise from '../views/Revise.vue'
+import ReviseInfo from '../views/ReviseInfo.vue'
+import CheckPost from '../views/CheckPost'
 Vue.use(VueRouter)
 
 const routes = [

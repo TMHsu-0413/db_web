@@ -31,10 +31,10 @@
             >
           </li>
           <li class="nav-item">
-            <router-link to="/UploadPost" class="nav-link">審核貼文</router-link>
+            <router-link to="/CheckPost" class="nav-link">審核貼文</router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/Revise" class="nav-link"
+            <router-link to="/ReviseInfo" class="nav-link"
               >修改個人資料</router-link
             >
           </li>

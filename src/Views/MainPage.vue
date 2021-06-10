@@ -1,59 +1,41 @@
 <template>
   <div class="container-fluid bg">
     <div class="row">
-      <div class="col-2 mid white">
+      <div v-for="(item,idx) in list" :key="'item'+idx" class="col-2 mid white">
         <a href="../ItemDetail">
-          <img src="../image/shark.jpg" style="width: 10vw; height: 10vw" />
+          <img :src="item.image" class="imgwh" />
         </a>
-        <h4>IKEA鯊魚</h4>
-        <h5>刊登者:</h5>
-      </div>
-      <div class="col-2 mid white">
-        <a href="../ItemDetail">
-          <img src="../image/shark.jpg" style="width: 10vw; height: 10vw" />
-        </a>
-        <h4>IKEA鯊魚</h4>
-        <h5>刊登者:</h5>
-      </div>
-      <div class="col-2 mid white">
-        <a href="../ItemDetail">
-          <img src="../image/shark.jpg" style="width: 10vw; height: 10vw" />
-        </a>
-        <h4>IKEA鯊魚</h4>
-        <h5>刊登者:</h5>
-      </div>
-      <div class="col-2 mid white">
-        <a href="../ItemDetail">
-          <img src="../image/shark.jpg" style="width: 10vw; height: 10vw" />
-        </a>
-        <h4>IKEA鯊魚</h4>
-        <h5>刊登者:</h5>
-      </div>
-      <div class="col-2 mid white">
-        <a href="../ItemDetail">
-          <img src="../image/shark.jpg" style="width: 10vw; height: 10vw" />
-        </a>
-        <h4>IKEA鯊魚</h4>
-        <h5>刊登者:</h5>
-      </div>
-      <div class="col-2 mid white">
-        <a href="../ItemDetail">
-          <img src="../image/shark.jpg" style="width: 10vw; height: 10vw" />
-        </a>
-        <h4>IKEA鯊魚</h4>
-        <h5>刊登者:</h5>
-      </div>
-      <div class="col-2 mid white">
-        <a href="../ItemDetail">
-          <img src="../image/shark.jpg" style="width: 10vw; height: 10vw" />
-        </a>
-        <h4>IKEA鯊魚</h4>
-        <h5>刊登者:</h5>
+        <h4>{{item.name}}</h4>
+        <h5>刊登者:{{item.poster}}</h5>
       </div>
     </div>
   </div>
 </template>
-
+<script>
+export default {
+  data () {
+    return {
+      list: [
+        {
+          image: 'image/shark.jpg',
+          name: 'IKEA鯊魚',
+          poster: '小名'
+        },
+        {
+          image: 'image/shark.jpg',
+          name: 'IKEA鯊魚',
+          poster: '小華'
+        },
+        {
+          image: 'image/shark.jpg',
+          name: 'IKEA鯊魚',
+          poster: '小智'
+        }
+      ]
+    }
+  }
+}
+</script>
 
 <style scoped>
 .bg {
@@ -74,19 +56,8 @@
   justify-content: center;
   align-items: center;
 }
-.form {
-  position: relative;
-  padding: 2rem 2rem;
-  border-radius: 10px;
-  height: 90%;
-  width: 90%;
-  /* width:30vw;
-  height: 80vh; */
-  background-color: rgba(255, 255, 255, 0.45);
-  border: 2px solid rgba(17, 223, 238, 0.4);
-  border-image-slice: 1;
-  display: flex;
-  flex-direction: column;
-  animation: fadein 1s;
+.imgwh{
+  width:10vw;
+  height:15vh;
 }
 </style>
