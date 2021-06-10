@@ -4,11 +4,13 @@ import VueMeta from 'vue-meta'
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
+import http from './plugins/http'
 import router from './router/index.js'
 Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
 Vue.use(VueMeta)
 Vue.config.productionTip = false
+Vue.prototype.$http = http
 
 new Vue({
   router,

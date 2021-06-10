@@ -12,7 +12,7 @@
           <h2 class="label">密碼</h2>
         </div>
       </div>
-      <button class="btn">登入</button>
+      <button class="btn" @click="Login">登入</button>
     </div>
   </div>
 </template>
@@ -26,6 +26,12 @@ export default {
     return {
       Account: null,
       Password: null
+    }
+  },
+  methods: {
+    async Login () {
+      let profile = { "Account": this.Account,"Password": this.Password }
+      this.$http.post('/user_login.php',profile).then((res) =>console.log(res.data.id))
     }
   }
 }
