@@ -1,6 +1,6 @@
 <template>
-  <div class="bg">
     <div class="form">
+      <div class="close"><button class="closebtn" @click='Closeupload'>&times;</button></div>
       <div class="container">
         <div class="row mt-2 mb-2 px-5">
           <input
@@ -106,20 +106,18 @@
         </div>
       </div>
     </div>
-  </div>
 </template>
-
+<script>
+export default {
+  props: {
+    Closeupload: Function
+  }
+}
+</script>
 <style scoped>
-.bg {
-  position: relative;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
-    url("../image/bg-5.jpg");
-  background-size: cover;
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+@keyframes fadein{
+  from {opacity: 0; transform: translateY(100px);}
+  to {opacity: 1; transform: translate(0);}
 }
 .form {
   position: absolute;
@@ -141,5 +139,16 @@
   border: none;
   border-radius: 5px;
   transition: all 0.3s;
+}
+.close{
+  margin-bottom: 2rem;
+}
+.closebtn{
+  font-size: 1.5rem;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  margin-top:-1rem;
+  float: right;
 }
 </style>

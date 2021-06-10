@@ -4,6 +4,7 @@
       <div class="close"><button class="closebtn" @click='CloseRegister'>&times;</button></div>
       <div class="flex-row">
         <div class="container">
+            <h2 class="mid">新增帳號</h2>
           <div class="row mt-4 mb-4">
             <div class="col">
               <div class="type_block fbasis50">
@@ -64,7 +65,8 @@
 <script>
 export default {
   props: {
-    CloseRegister: Function
+    CloseRegister: Function,
+    Admin: Boolean
   },
   data () {
     return {
@@ -86,7 +88,6 @@ export default {
   to {opacity: 1; transform: translate(0);}
 }
 
-
 .flex{
   display: flex;
   justify-content: center;
@@ -104,6 +105,9 @@ export default {
   display: flex;
   flex-direction: column;
   animation: fadein 1s;
+}
+.mid{
+  text-align: center;
 }
 .flex-row{
   display: flex;

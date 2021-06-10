@@ -1,6 +1,6 @@
 <template>
   <div class="flex">
-    <div class="form">
+    <div class="container form">
       <div class="close"><button class="closebtn" @click='CloseLogin'>&times;</button></div>
       <div class="flex-col">
         <div class="type_block">
@@ -45,11 +45,11 @@ export default {
   position: absolute;
   padding:2rem 1rem;
   border-radius: 10px;
-  width: auto;
-  height: auto;
   background-color: rgba(255,255,255,.45);
   border: 2px solid rgba(17, 223, 238, 0.4);
   border-image-slice: 1;
+  max-width:20rem;
+  max-height: 25rem;
   display: flex;
   flex-direction: column;
   animation: fadein 1s;

@@ -3,12 +3,12 @@
     class="navbar navbar-expand navbar-dark bg-dark"
     aria-label="Second navbar example"
   >
-    <div v-if="OpenR" class="bg100">
-      <Register :CloseRegister="CloseRegister" :Admin="true"></Register>
+    <div v-if="upload" class="bg100">
+      <Upload :Closeupload="Closeupload"></Upload>
     </div>
 
     <div class="container-fluid">
-      <router-link to="/admin" class="navbar-brand"
+      <router-link to="/user" class="navbar-brand"
         >易物媒合系統</router-link
       >
       <button
@@ -26,20 +26,18 @@
       <div class="collapse navbar-collapse" id="navbarsExample02">
         <ul class="navbar-nav me-auto">
           <li class="nav-item">
-            <router-link to="/admin" class="nav-link" aria-current="page"
+            <router-link to="/user" class="nav-link" aria-current="page"
               >首頁</router-link
             >
           </li>
           <li class="nav-item">
-            <router-link to="/UploadPost" class="nav-link">審核貼文</router-link>
+            <a class="nav-link cursor" @click="uploadPage">上傳貼文</a>
           </li>
           <li class="nav-item">
-            <router-link to="/Revise" class="nav-link"
-              >修改個人資料</router-link
-            >
+            <router-link to="/MainPage" class="nav-link">查看交易請求</router-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link cursor" @click="Reg">新增管理者</a>
+            <router-link to="/MainPage" class="nav-link">修改個人資料</router-link>
           </li>
         </ul>
         <div class="nav-item">
@@ -51,24 +49,24 @@
 </template>
 
 <script>
-import Register from "./Register";
+import Upload from "./UploadPost.vue";
 export default {
   name: "HelloWorld",
   data() {
     return {
-      OpenR: false,
+      upload: false,
     };
   },
   methods: {
-    Reg() {
-      this.OpenR = true;
+    uploadPage() {
+      this.upload= true;
     },
-    CloseRegister() {
-      this.OpenR = false;
+    Closeupload() {
+      this.upload = false;
     },
   },
   components: {
-    Register,
+    Upload,
   },
 };
 </script>

@@ -8,6 +8,9 @@
 export default {
   name: 'app',
   components: {
+  },
+  metaInfo: {
+    title: '易物媒合系統'
   }
 }
 </script>
