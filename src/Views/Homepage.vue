@@ -12,7 +12,7 @@
       </div>
     </header>
     <div v-if='L'><Login :CloseLogin="CloseLogin"></Login></div>
-    <div v-if='R'><Register :CloseRegister="CloseRegister" :Admin="false"></Register></div>
+    <div v-if='R'><Register :CloseRegister="CloseRegister" :Admin="0"></Register></div>
   </div>
 </template>
 <script>

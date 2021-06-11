@@ -4,7 +4,7 @@
     aria-label="Second navbar example"
   >
     <div v-if="upload" class="bg100">
-      <Upload :Closeupload="Closeupload"></Upload>
+      <Upload :Closeupload="Closeupload" :Verify="0"></Upload>
     </div>
 
     <div class="container-fluid">
@@ -48,7 +48,7 @@
           </li>
         </ul>
         <div class="nav-item">
-          <button class="nav-link btn">登出</button>
+          <button class="nav-link btn" @click="Logout">登出</button>
         </div>
       </div>
     </div>
@@ -57,6 +57,7 @@
 
 <script>
 import Upload from "./UploadPost.vue";
+import Vue from 'vue'
 export default {
   name: "HelloWorld",
   data() {
@@ -71,6 +72,11 @@ export default {
     Closeupload() {
       this.upload = false;
     },
+    Logout() {
+      Vue.cookies.set('admin', '')
+      Vue.cookies.set('id', '')
+      this.$router.push('/')
+    }
   },
   components: {
     Upload,

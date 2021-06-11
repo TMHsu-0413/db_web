@@ -30,6 +30,8 @@
               <div class="type_block fbasis50">
                 <input type="password" v-model="ConPassword" class="input w80" placeholder="再輸入一次密碼" />
                 <h2 class="label">確認密碼</h2>
+                <b-icon v-if="Password != ConPassword" icon="x" class="ver red"></b-icon>
+                <b-icon v-else icon="check" class="ver green"></b-icon>
               </div>
             </div>
           </div>
@@ -57,7 +59,7 @@
           </div>
         </div>
       </div>
-      <button class="btn">註冊</button>
+      <button class="btn" @click="Reg">註冊</button>
     </div>
   </div>
 </template>
@@ -77,6 +79,16 @@ export default {
       Phone: null,
       Email: null,
       Address: null
+    }
+  },
+  methods: {
+    async Reg() {
+      if(this.Password == this.ConPassword){
+        let profile = { 'Account':this.Account, 'Password':this.Password,
+        'Name': this.Name, 'Phone': this.Phone, 'Email': this.Email,'Address': this.Address,'Admin': this.Admin }
+        await this.$http.post('/user_create.php',profile)
+        this.CloseRegister()
+      }
     }
   }
 }
@@ -106,8 +118,20 @@ export default {
   flex-direction: column;
   animation: fadein 1s;
 }
+.ver{
+  font-size: 1.5rem;
+  position: absolute;
+  right:0;
+  top:.5rem;
+}
+.green{
+  color:green;
+}
 .mid{
   text-align: center;
+}
+.red{
+  color:red;
 }
 .flex-row{
   display: flex;

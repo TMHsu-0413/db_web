@@ -1,14 +1,14 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../Views/Home.vue'
-import User from '../Views/User.vue'
-import Homepage from '../Views/Homepage.vue'
-import MainPage from '../Views/MainPage.vue'
-import ItemDetail from '../Views/ItemDetail.vue'
-import ReviseInfo from '../Views/ReviseInfo.vue'
-import CheckPost from '../Views/CheckPost'
-import CheckPostDetail from '../Views/CheckPostDetail'
-import TransRecords from '../Views/TransRecords'
+import Home from '../views/Home.vue'
+import User from '../views/User.vue'
+import Homepage from '../views/Homepage.vue'
+import MainPage from '../views/MainPage.vue'
+import ItemDetail from '../views/ItemDetail.vue'
+import ReviseInfo from '../views/ReviseInfo.vue'
+import CheckPost from '../views/CheckPost'
+import CheckPostDetail from '../views/CheckPostDetail'
+import TransRecords from '../views/TransRecords'
 Vue.use(VueRouter)
 
 const routes = [
@@ -22,11 +22,17 @@ const routes = [
             { path: '/ReviseInfo', component: ReviseInfo },
             { path: '/CheckPost', component: CheckPost },
             { path: '/CheckPostDetail', component: CheckPostDetail }
-        ]
+        ],
+        meta: {
+            isPublic: false
+        }
     },
     {
         path: '/',
-        component: Homepage
+        component: Homepage,
+        meta: {
+            isPublic: true
+        }
     },
     {
         path: '/user',
@@ -35,7 +41,10 @@ const routes = [
         children: [
             { path: '/', component: MainPage },
             { path: '/TransRecords', component: TransRecords }
-        ]
+        ],
+        meta: {
+            isPublic: false
+        }
     }
 ]
 
@@ -44,6 +53,13 @@ const router = new VueRouter({
     routes,
     Homepage,
     User
+})
+
+router.beforeEach((to, from, next) => {
+    if(!to.meta.isPublic && !Vue.cookies.get('admin')){
+        return next('/')
+    }
+    next()
 })
 
 export default router

@@ -4,7 +4,7 @@
     aria-label="Second navbar example"
   >
     <div v-if="OpenR" class="bg100">
-      <Register :CloseRegister="CloseRegister" :Admin="true"></Register>
+      <Register :CloseRegister="CloseRegister" :Admin="1"></Register>
     </div>
 
     <div class="container-fluid">
@@ -43,7 +43,7 @@
           </li>
         </ul>
         <div class="nav-item">
-          <button class="nav-link btn">登出</button>
+          <button class="nav-link btn" @click="Logout">登出</button>
         </div>
       </div>
     </div>
@@ -52,6 +52,7 @@
 
 <script>
 import Register from "./Register";
+import Vue from 'vue'
 export default {
   name: "HelloWorld",
   data() {
@@ -66,6 +67,11 @@ export default {
     CloseRegister() {
       this.OpenR = false;
     },
+    Logout() {
+      Vue.cookies.set('admin', '')
+      Vue.cookies.set('id', '')
+      this.$router.push('/')
+    }
   },
   components: {
     Register,

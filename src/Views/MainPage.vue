@@ -2,8 +2,8 @@
   <div class="container-fluid bg">
     <div class="row">
       <div v-for="(item,idx) in list" :key="'item'+idx" class="col-2 mid white">
-        <a href="../ItemDetail">
-          <img :src="item.image" class="imgwh" />
+        <a @click="ItemDetail(item.id)">
+          <img :src="item.ImageName" class="imgwh" />
         </a>
         <h4>{{item.name}}</h4>
         <h5>刊登者:{{item.poster}}</h5>
@@ -31,8 +31,22 @@ export default {
           name: 'IKEA鯊魚',
           poster: '小智'
         }
-      ]
+      ],
+      sp_list: []
     }
+  },
+  methods: {
+    async show() {
+      const all = await this.$http.get('/post_search.php')
+      this.list = all.data
+    },
+    async ItemDetail(id) {
+      const all = await this.$http.get('/post_search_sp.php',id)
+      this.sp_list=all.data
+    }
+  },
+  created() {
+    this.show()
   }
 }
 </script>

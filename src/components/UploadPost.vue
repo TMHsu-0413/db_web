@@ -17,7 +17,7 @@
           type="text"
           class="form-control"
           placeholder="物品數量"
-          aria-label="ItemQuanitiy"
+          aria-label="ItemNum"
         />
       </div>
       <div class="row mt-2 mb-2 px-5">
@@ -101,7 +101,7 @@
         <div class="col"></div>
         <div class="col"></div>
         <div class="col">
-          <button type="button" class="btn btn-dark">上傳貼文</button>
+          <button type="button" class="btn btn-dark" @click="upload">上傳貼文</button>
         </div>
       </div>
     </div>
@@ -111,7 +111,12 @@
 export default {
   props: {
     Closeupload: Function,
+    Verify: Boolean
   },
+  methods: {
+    upload() {
+    }
+  }
 };
 </script>
 <style scoped>

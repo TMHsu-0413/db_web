@@ -5,10 +5,12 @@ import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 import http from './plugins/http'
+import VueCookies from 'vue-cookies-ts'
 import router from './router/index.js'
 Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
 Vue.use(VueMeta)
+Vue.use(VueCookies)
 Vue.config.productionTip = false
 Vue.prototype.$http = http
 

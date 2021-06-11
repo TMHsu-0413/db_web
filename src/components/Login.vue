@@ -8,7 +8,7 @@
           <h2 class="label">帳號</h2>
         </div>
         <div class="type_block">
-          <input type="text" v-model="Password" class="input" placeholder="密碼" />
+          <input type="password" v-model="Password" class="input" placeholder="密碼" @keydown.enter="Login" />
           <h2 class="label">密碼</h2>
         </div>
       </div>
@@ -31,7 +31,13 @@ export default {
   methods: {
     async Login () {
       let profile = { "Account": this.Account,"Password": this.Password }
-      this.$http.post('/user_login.php',profile).then((res) =>console.log(res.data.id))
+      this.$http.post('/user_login.php',profile)
+      .then((res) =>{
+        if(res.data.admin=='1')
+          this.$router.push('/admin')
+        else if(res.data.admin == '0')
+          this.$router.push('/user')
+      })
     }
   }
 }
