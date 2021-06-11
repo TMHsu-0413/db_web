@@ -8,9 +8,7 @@
     </div>
 
     <div class="container-fluid">
-      <router-link to="/user" class="navbar-brand"
-        >易物媒合系統</router-link
-      >
+      <router-link to="/user" class="navbar-brand">易物媒合系統</router-link>
       <button
         class="navbar-toggler"
         type="button"
@@ -34,10 +32,19 @@
             <a class="nav-link cursor" @click="uploadPage">上傳貼文</a>
           </li>
           <li class="nav-item">
-            <router-link to="/MainPage" class="nav-link">查看交易請求</router-link>
+            <router-link to="/MainPage" class="nav-link"
+              >查看交易請求</router-link
+            >
           </li>
           <li class="nav-item">
-            <router-link to="/MainPage" class="nav-link">修改個人資料</router-link>
+            <router-link to="/MainPage" class="nav-link"
+              >查看交易紀錄</router-link
+            >
+          </li>
+          <li class="nav-item">
+            <router-link to="/MainPage" class="nav-link"
+              >修改個人資料</router-link
+            >
           </li>
         </ul>
         <div class="nav-item">
@@ -59,7 +66,7 @@ export default {
   },
   methods: {
     uploadPage() {
-      this.upload= true;
+      this.upload = true;
     },
     Closeupload() {
       this.upload = false;
