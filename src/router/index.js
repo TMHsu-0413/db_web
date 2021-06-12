@@ -4,7 +4,6 @@ import Home from '../views/Home.vue'
 import User from '../views/User.vue'
 import Homepage from '../views/Homepage.vue'
 import MainPage from '../views/MainPage.vue'
-import ItemDetail from '../views/ItemDetail.vue'
 import ReviseInfo from '../views/ReviseInfo.vue'
 import CheckPost from '../views/CheckPost'
 import TransRecords from '../views/TransRecords'
@@ -17,7 +16,6 @@ const routes = [
         component: Home,
         children: [
             { path: '/', component: MainPage },
-            { path: '/ItemDetail', component: ItemDetail },
             { path: '/ReviseInfo', component: ReviseInfo },
             { path: '/CheckPost', component: CheckPost }
         ],

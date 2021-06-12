@@ -1,6 +1,9 @@
 <template>
   <div class="container-fluid bg">
-    <div class="row">
+    <div v-if="openSp" class="bg-black">
+      <ItemDetail :list="sp_list" :CloseSp="CloseSp" :show="show"></ItemDetail>
+    </div>
+    <div class="row" v-else>
       <div v-for="(item,idx) in list" :key="'item'+idx" class="col-2 mid white">
         <a @click="ItemDetail(item.id)">
           <img :src="item.ImageName" class="imgwh" />
@@ -12,28 +15,17 @@
   </div>
 </template>
 <script>
+import ItemDetail from '../components/ItemDetail.vue'
 export default {
   data () {
     return {
-      list: [
-        {
-          image: 'image/shark.jpg',
-          name: 'IKEA鯊魚',
-          poster: '小名'
-        },
-        {
-          image: 'image/shark.jpg',
-          name: 'IKEA鯊魚',
-          poster: '小華'
-        },
-        {
-          image: 'image/shark.jpg',
-          name: 'IKEA鯊魚',
-          poster: '小智'
-        }
-      ],
-      sp_list: []
+      list: [],
+      sp_list: [],
+      openSp: false
     }
+  },
+  components: {
+    ItemDetail
   },
   methods: {
     async show() {
@@ -41,8 +33,14 @@ export default {
       this.list = all.data
     },
     async ItemDetail(id) {
-      const all = await this.$http.get('/post_search_sp.php',id)
+      let profile = { 'id': id }
+      const all = await this.$http.post('/post_search_sp.php',profile)
       this.sp_list=all.data
+      console.log(this.sp_list)
+      this.openSp = true
+    },
+    CloseSp() {
+      this.openSp = false
     }
   },
   created() {
@@ -63,6 +61,17 @@ export default {
 }
 .white {
   color: white;
+}
+.bg-black {
+  position: fixed;
+  left:0;
+  top:0;
+  background-color: rgba(0,0,0,.65);
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .mid {
   display: flex;

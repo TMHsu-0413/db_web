@@ -31,23 +31,7 @@ import CheckPostDetail from '../components/CheckPostDetail'
 export default {
   data () {
     return {
-      list: [
-        {
-          name: '鯊魚貼圖',
-          poster: '小名',
-          num: 7
-        },
-        {
-          name: '好吃的',
-          poster: '小華',
-          num: 5
-        },
-        {
-          name: '杏仁茶',
-          poster: '小陳',
-          num: 10
-        }
-      ],
+      list: [],
       sp_list: [],
       openSp: false
     }
@@ -61,7 +45,7 @@ export default {
       this.list = res.data
     },
     async specified (idx) {
-      let profile = { 'id':idx}
+      let profile = { 'id':idx }
       const res = await this.$http.post('/post_search_sp.php',profile)
       this.sp_list = res.data
       this.openSp = true
