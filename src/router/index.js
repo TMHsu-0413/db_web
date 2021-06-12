@@ -9,6 +9,8 @@ import ReviseInfo from '../views/ReviseInfo.vue'
 import CheckPost from '../views/CheckPost'
 import TransRecords from '../views/TransRecords'
 import MyPost from '../views/MyPost'
+import PostRequest from '../views/PostRequest'
+import ReviseInfouser from '../views/ReviseInfouser'
 Vue.use(VueRouter)
 
 const routes = [
@@ -39,7 +41,9 @@ const routes = [
         children: [
             { path: '/', component: MainPage_u },
             { path: '/TransRecords', component: TransRecords },
-            { path: '/MyPost', component: MyPost }
+            { path: '/MyPost', component: MyPost },
+            { path: '/PostRequest', component: PostRequest },
+            { path: '/ReviseInfouser', component: ReviseInfouser }
         ],
         meta: {
             isPublic: true
