@@ -32,12 +32,16 @@
             <a class="nav-link cursor" @click="uploadPage">上傳貼文</a>
           </li>
           <li class="nav-item">
+            <router-link to="/MyPost" class="nav-link">我的貼文</router-link>
+          </li>
+
+          <li class="nav-item">
             <router-link to="/MainPage" class="nav-link"
               >查看交易請求</router-link
             >
           </li>
           <li class="nav-item">
-            <router-link to="/MainPage" class="nav-link"
+            <router-link to="/TransRecords" class="nav-link"
               >查看交易紀錄</router-link
             >
           </li>
@@ -57,7 +61,7 @@
 
 <script>
 import Upload from "./UploadPost.vue";
-import Vue from 'vue'
+import Vue from "vue";
 export default {
   name: "HelloWorld",
   data() {
@@ -73,10 +77,10 @@ export default {
       this.upload = false;
     },
     Logout() {
-      Vue.cookies.set('admin', '')
-      Vue.cookies.set('id', '')
-      this.$router.push('/')
-    }
+      Vue.cookies.set("admin", "");
+      Vue.cookies.set("id", "");
+      this.$router.push("/");
+    },
   },
   components: {
     Upload,

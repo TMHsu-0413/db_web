@@ -7,6 +7,7 @@ import MainPage from '../views/MainPage.vue'
 import ReviseInfo from '../views/ReviseInfo.vue'
 import CheckPost from '../views/CheckPost'
 import TransRecords from '../views/TransRecords'
+import MyPost from '../views/MyPost'
 Vue.use(VueRouter)
 
 const routes = [
@@ -20,7 +21,7 @@ const routes = [
             { path: '/CheckPost', component: CheckPost }
         ],
         meta: {
-            isPublic: false
+            isPublic: true
         }
     },
     {
@@ -36,10 +37,11 @@ const routes = [
         component: User,
         children: [
             { path: '/', component: MainPage },
-            { path: '/TransRecords', component: TransRecords }
+            { path: '/TransRecords', component: TransRecords },
+            { path: '/MyPost', component: MyPost }
         ],
         meta: {
-            isPublic: false
+            isPublic: true
         }
     }
 ]
@@ -52,7 +54,7 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
-    if(!to.meta.isPublic && !Vue.cookies.get('admin')){
+    if (!to.meta.isPublic && !Vue.cookies.get('admin')) {
         return next('/')
     }
     next()
