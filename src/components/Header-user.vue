@@ -36,7 +36,7 @@
           </li>
 
           <li class="nav-item">
-            <router-link to="/MainPage" class="nav-link"
+            <router-link to="/PostRequest" class="nav-link"
               >查看交易請求</router-link
             >
           </li>
@@ -46,7 +46,7 @@
             >
           </li>
           <li class="nav-item">
-            <router-link to="/MainPage" class="nav-link"
+            <router-link to="/ReviseInfouser" class="nav-link"
               >修改個人資料</router-link
             >
           </li>
