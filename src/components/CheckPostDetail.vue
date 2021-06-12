@@ -39,6 +39,19 @@
           <div class="col-4"></div>
         </div>
 
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" v-model="edit" value="0">
+          <label class="form-check-label" for="flexRadioDefault1">
+            不可修改貼文
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked v-model="edit" value="1">
+          <label class="form-check-label" for="flexRadioDefault2">
+            可修改貼文
+          </label>
+        </div>
+
         <div class="row mt-2 mb-2">
           <div class="col-5">
             <button type="button" class="btn btn-primary px-md-4 mr" @click="agree">
@@ -62,12 +75,13 @@ export default {
   },
   data() {
     return {
-      date: null
+      date: null,
+      edit: null
     }
   },
   methods: {
     async agree() {
-      let profile = { 'id':this.list.id }
+      let profile = { 'id':this.list.id,'date': this.date,'CanEdit': this.edit }
       await this.$http.post('/post_agree.php',profile)
       this.CloseSp()
       await this.show()

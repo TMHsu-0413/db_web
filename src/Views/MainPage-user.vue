@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid bg">
     <div v-if="openSp" class="bg-black">
-      <ItemDetail :list="sp_list" :CloseSp="CloseSp" :show="show"></ItemDetail>
+      <ItemDetail :list="sp_list" :CloseSp="CloseSp" :show="show" :btn="true"></ItemDetail>
     </div>
     <div class="row" v-else>
       <div
@@ -20,6 +20,9 @@
 </template>
 <script>
 import ItemDetail from "../components/ItemDetail.vue";
+import Vue from 'vue'
+import VueCookies from 'vue-cookies-ts'
+Vue.use(VueCookies)
 export default {
   data() {
     return {
@@ -37,7 +40,7 @@ export default {
       this.list = all.data;
     },
     async ItemDetail(id) {
-      let profile = { id: id };
+      let profile = { 'id': id }
       const all = await this.$http.post("/post_search_sp.php", profile);
       this.sp_list = all.data;
       console.log(this.sp_list);

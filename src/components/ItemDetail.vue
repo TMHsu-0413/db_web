@@ -2,7 +2,7 @@
   <div class="form container">
     <div class="row">
       <div class="col-6">
-        <img src="../image/shark.jpg" style="width: 30vw; height: 30vw" />
+        <img :src="list.ImageName" style="width: 30vw; height: 30vw" />
       </div>
       <div class="col col-lg-6">
         <div class="close"><button class="closebtn" @click='CloseSp'>&times;</button></div>
@@ -19,11 +19,15 @@
           <h4>物品所在地: {{list.ItemAddress}}</h4>
         </div>
         <div class="row mt-3 mb-3">
-          <h4>想交換物品: {{list.WantItemName}}</h4>
+          <h4>物品來源: {{list.ItemFrom}}</h4>
         </div>
-        <div class="row mt-4 mb-3">
+        <div class="row mt-3 mb-3">
+          <h4 v-if="list.WantItemName">想交換物品: {{list.WantItemName}}</h4>
+          <h4 v-else>想交換物品: 無</h4>
+        </div>
+        <div class="row mt-4 mb-3" v-if="btn">
           <div class="col-8">
-            <button type="button" class="btn btn-primary px-md-4">
+            <button type="button" class="btn btn-primary px-md-4" @click="add1">
               <img
                 src="../image/Change.png"
                 style="width: 3vw; height: 3vw"
@@ -38,10 +42,21 @@
 </template>
 
 <script>
+import Vue from 'vue'
 export default {
   props: {
     list: Object,
-    CloseSp: Function
+    CloseSp: Function,
+    btn: Boolean
+  },
+  methods: {
+    async add1() {
+      let profile = {'Request_id': Vue.cookies.get('id'),'Request_Item': '木頭'
+      ,'Request_Num': 3 ,'Poster_id': this.list.Poster_id1,'Poster_Item': this.list.ItemName
+      ,'Poster_Num': this.list.ItemNum,'changed': 0}
+      console.log(this.list)
+      await this.$http.post('/rc_create.php',profile)
+    }
   }
 }
 </script>

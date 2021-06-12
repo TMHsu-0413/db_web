@@ -3,7 +3,8 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import User from '../views/User.vue'
 import Homepage from '../views/Homepage.vue'
-import MainPage from '../views/MainPage.vue'
+import MainPage_a from '../views/MainPage-admin.vue'
+import MainPage_u from '../views/MainPage-user.vue'
 import ReviseInfo from '../views/ReviseInfo.vue'
 import CheckPost from '../views/CheckPost'
 import TransRecords from '../views/TransRecords'
@@ -16,7 +17,7 @@ const routes = [
         name: 'Home',
         component: Home,
         children: [
-            { path: '/', component: MainPage },
+            { path: '/', component: MainPage_a },
             { path: '/ReviseInfo', component: ReviseInfo },
             { path: '/CheckPost', component: CheckPost }
         ],
@@ -36,7 +37,7 @@ const routes = [
         name: 'User',
         component: User,
         children: [
-            { path: '/', component: MainPage },
+            { path: '/', component: MainPage_u },
             { path: '/TransRecords', component: TransRecords },
             { path: '/MyPost', component: MyPost }
         ],

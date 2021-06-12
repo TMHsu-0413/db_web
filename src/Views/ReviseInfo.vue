@@ -9,6 +9,7 @@
               class="form-control"
               placeholder="重新設定密碼"
               aria-label="password"
+              v-model="password"
             />
           </div>
         </div>
@@ -19,6 +20,7 @@
               class="form-control"
               placeholder="確認密碼"
               aria-label="confirmpassword"
+              v-model="Conpassword"
             />
           </div>
         </div>
@@ -29,6 +31,7 @@
               class="form-control"
               placeholder="電話"
               aria-label="Phone"
+              v-model="Phone"
             />
           </div>
         </div>
@@ -39,6 +42,7 @@
               class="form-control"
               placeholder="電子郵件"
               aria-label="mail"
+              v-model="Email"
             />
           </div>
         </div>
@@ -49,6 +53,7 @@
               class="form-control"
               placeholder="地址"
               aria-label="address"
+              v-model="address"
             />
           </div>
         </div>
@@ -57,14 +62,43 @@
         <div class="row">
           <div class="col-7"></div>
           <div class="col">
-            <button type="button" class="btn btn-dark">確認修改</button>
+            <button type="button" class="btn btn-dark" @click="Revise">確認修改</button>
           </div>
         </div>
       </div>
     </div>
   </div>
 </template>
-
+<script>
+import Vue from 'vue'
+export default {
+  data() {
+    return {
+      password: null,
+      Conpassword: null,
+      Phone: null,
+      Email: null,
+      address: null
+    }
+  },
+  methods: {
+    async Revise() {
+      if(this.password == this.Conpassword){
+        let profile = { 'id': Vue.cookies.get('id'),'Password':this.password,'Phone':this.Phone, 'Address':this.address ,'Email':this.Email }
+        await this.$http.post('/user_revise.php',profile)
+        this.$router.push('/admin')
+      }
+    }
+  },
+  async created() {
+    let profile={ 'id': Vue.cookies.get('id') }
+    let res = await this.$http.post('/user_search_sp.php',profile)
+    this.Phone = res.data.Phone
+    this.Address = res.data.Address
+    this.Email = res.data.Email
+  }
+}
+</script>
 <style scoped>
 .bg {
   position: relative;
