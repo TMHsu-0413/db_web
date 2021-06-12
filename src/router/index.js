@@ -7,7 +7,6 @@ import MainPage from '../views/MainPage.vue'
 import ItemDetail from '../views/ItemDetail.vue'
 import ReviseInfo from '../views/ReviseInfo.vue'
 import CheckPost from '../views/CheckPost'
-import CheckPostDetail from '../views/CheckPostDetail'
 import TransRecords from '../views/TransRecords'
 Vue.use(VueRouter)
 
@@ -20,8 +19,7 @@ const routes = [
             { path: '/', component: MainPage },
             { path: '/ItemDetail', component: ItemDetail },
             { path: '/ReviseInfo', component: ReviseInfo },
-            { path: '/CheckPost', component: CheckPost },
-            { path: '/CheckPostDetail', component: CheckPostDetail }
+            { path: '/CheckPost', component: CheckPost }
         ],
         meta: {
             isPublic: false

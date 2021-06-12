@@ -5,7 +5,7 @@
         <a @click="ItemDetail(item.id)">
           <img :src="item.ImageName" class="imgwh" />
         </a>
-        <h4>{{item.name}}</h4>
+        <h4>{{item.Itemname}}</h4>
         <h5>刊登者:{{item.poster}}</h5>
       </div>
     </div>
@@ -37,7 +37,7 @@ export default {
   },
   methods: {
     async show() {
-      const all = await this.$http.get('/post_search.php')
+      const all = await this.$http.get('/post_search_mainpage.php')
       this.list = all.data
     },
     async ItemDetail(id) {

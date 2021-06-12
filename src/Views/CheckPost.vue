@@ -1,6 +1,9 @@
 <template>
   <div class="container-fluid bg flex">
-    <table class="table width60 table-hover">
+    <div v-if="openSp" class="bg-black">
+    <CheckPostDetail :list="sp_list" :CloseSp="CloseSp" :show="show"></CheckPostDetail>
+    </div>
+    <table class="table width60 table-hover" v-else>
       <thead class="white fs2">
         <tr>
           <th scope="th">#</th>
@@ -13,10 +16,10 @@
       <tbody class="white1 fs1">
         <tr v-for="(item,idx) in list" :key="'item'+idx">
           <th scope="row">{{idx}}</th>
-          <th class="text-middle">{{item.name}}</th>
+          <th class="text-middle">{{item.Itemname}}</th>
           <th class="text-middle">{{item.poster}}</th>
-          <th class="text-middle">{{item.num}}</th>
-          <th class="text-middle"><b-icon icon="file-earmark-medical-fill" class="cursor"></b-icon></th>
+          <th class="text-middle">{{item.ItemNum}}</th>
+          <th class="text-middle"><b-icon @click="specified(item.id)" icon="file-earmark-medical-fill" class="cursor"></b-icon></th>
         </tr>
       </tbody>
     </table>
@@ -24,6 +27,7 @@
 </template>
 
 <script>
+import CheckPostDetail from '../components/CheckPostDetail'
 export default {
   data () {
     return {
@@ -43,8 +47,31 @@ export default {
           poster: '小陳',
           num: 10
         }
-      ]
+      ],
+      sp_list: [],
+      openSp: false
     }
+  },
+  components: {
+    CheckPostDetail
+  },
+  methods: {
+    async show() {
+      const res = await this.$http.get('/post_search_checkpost.php')
+      this.list = res.data
+    },
+    async specified (idx) {
+      let profile = { 'id':idx}
+      const res = await this.$http.post('/post_search_sp.php',profile)
+      this.sp_list = res.data
+      this.openSp = true
+    },
+    CloseSp() {
+      this.openSp = false
+    }
+  },
+  created() {
+    this.show()
   }
 }
 </script>
@@ -57,7 +84,7 @@ export default {
   background-size: cover;
   height: 100vh;
   width: 100%;
-  padding: 1rem;
+  padding:0 1rem;
 }
 .flex{
   display: flex;
@@ -68,6 +95,17 @@ export default {
 }
 .white1{
   color:rgba(193, 196, 197, 0.931)
+}
+.bg-black {
+  position: fixed;
+  left:0;
+  top:0;
+  background-color: rgba(0,0,0,.65);
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .mid {
   display: flex;
