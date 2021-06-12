@@ -13,7 +13,7 @@
             />
           </div>
         </div>
-        <div class="row mt-3 mb-3 px-5">
+        <div class="row mt-3 mb-3 px-5 pre">
           <div class="type_block fbasis50">
             <input
               type="password"
@@ -23,6 +23,8 @@
               v-model="Conpassword"
             />
           </div>
+          <b-icon v-if="password != Conpassword" icon="x" class="ver red"></b-icon>
+          <b-icon v-else icon="check" class="ver green"></b-icon>
         </div>
         <div class="row mt-3 mb-3 px-5">
           <div class="type_block fbasis50">
@@ -131,5 +133,20 @@ export default {
   border: none;
   border-radius: 5px;
   transition: all 0.3s;
+}
+.ver{
+  font-size: 1.5rem;
+  position: absolute;
+  right:-40%;
+  top:.5rem;
+}
+.pre{
+  position: relative;
+}
+.green{
+  color:green;
+}
+.red{
+  color:red;
 }
 </style>
