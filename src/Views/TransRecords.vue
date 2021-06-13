@@ -13,11 +13,13 @@
       <tbody class="white1 fs1">
         <tr v-for="(item, idx) in list" :key="'item' + idx">
           <th scope="row">{{ idx }}</th>
-          <th class="text-middle">{{ item.name }}</th>
-          <th class="text-middle">{{ item.poster }}</th>
-          <th class="text-middle">{{ item.num }}</th>
-          <th class="text-middle" :style="activation(item.result)">
-            {{ item.result }}
+          <th class="text-middle">{{ item.Itemname }}</th>
+          <th class="text-middle">{{ item.Name }}</th>
+          <th class="text-middle">{{ item.ItemNum }}</th>
+          <th class="text-middle">
+            <b-icon v-if="item.success=='1'" icon="check" class="cursor green"></b-icon>
+            <b-icon v-else-if="item.success=='0'" icon="x" class="cursor red"></b-icon>
+            <b-icon v-else icon="dash" class="cursor gray"></b-icon>
           </th>
         </tr>
       </tbody>
@@ -26,43 +28,23 @@
 </template>
 
 <script>
+import Vue from 'vue'
 export default {
   data() {
     return {
-      list: [
-        {
-          name: "鯊魚貼圖",
-          poster: "小名",
-          num: 1,
-          result: "成功",
-        },
-        {
-          name: "好吃的",
-          poster: "小華",
-          num: 2,
-          result: "失敗",
-        },
-        {
-          name: "杏仁茶",
-          poster: "小陳",
-          num: 3,
-          result: "成功",
-        },
-      ],
+      list: []
     };
   },
-  computed: {
-    activation() {
-      return (icontent) => {
-        console.log(icontent);
-        if (icontent === "成功") {
-          return { color: "blue" };
-        } else if (icontent === "失敗") {
-          return { color: "red" };
-        }
-      };
-    },
+  methods: {
+    async show() {
+      let profile = { 'id':Vue.cookies.get('id') }
+      const res =await this.$http.post('/request_record.php',profile)
+      this.list=res.data
+    }
   },
+  created() {
+    this.show()
+  }
 };
 </script>
 
@@ -109,5 +91,14 @@ export default {
 }
 .cursor {
   cursor: pointer;
+}
+.green{
+  color:green;
+}
+.red{
+  color:red;
+}
+.gray{
+  color:gray;
 }
 </style>
