@@ -20,7 +20,7 @@
           <th class="text-middle">{{ item.ItemNum }}</th>
           <th class="text-middle">{{ item.ItemAddress }}</th>
           <th class="text-middle">
-            <b-icon v-if="item.CanEdit" icon="file-earmark-medical-fill" class="cursor green" @click="Rptrue(item.id)"></b-icon>
+            <b-icon v-if="item.CanEdit=='1'" icon="file-earmark-medical-fill" class="cursor green" @click="Rptrue(item.id)"></b-icon>
             <b-icon v-else icon="x" class="cursor red" @click="Rpfalse(item.id)"></b-icon>
           </th>
         </tr>
