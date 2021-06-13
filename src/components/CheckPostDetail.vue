@@ -2,7 +2,7 @@
   <div class="form container">
     <div class="row">
       <div class="col-6 mid">
-        <img src="../image/shark3.jpg" style="width: 25vw; height: 25vw" />
+        <img :src="list.ImageName" style="width: 25vw; height: 25vw" />
       </div>
       <div class="col col-lg-6">
         <div class="close"><button class="closebtn" @click='CloseSp'>&times;</button></div>
@@ -39,7 +39,7 @@
           <div class="col-4"></div>
         </div>
 
-        <div class="form-check">
+        <!--<div class="form-check">
           <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" v-model="edit" value="0">
           <label class="form-check-label" for="flexRadioDefault1">
             不可修改貼文
@@ -50,7 +50,7 @@
           <label class="form-check-label" for="flexRadioDefault2">
             可修改貼文
           </label>
-        </div>
+        </div>-->
 
         <div class="row mt-2 mb-2">
           <div class="col-5">
@@ -81,7 +81,7 @@ export default {
   },
   methods: {
     async agree() {
-      let profile = { 'id':this.list.id,'date': this.date,'CanEdit': this.edit }
+      let profile = { 'id':this.list.id,'date': this.date,'CanEdit': '0' }
       await this.$http.post('/post_agree.php',profile)
       this.CloseSp()
       await this.show()

@@ -1,4 +1,5 @@
 import axios from 'axios'
+import Vue from 'vue'
 // http://DOMAIN.XX/
 // http://localhost:5000/
 const http = axios.create({
@@ -23,12 +24,22 @@ function (error) {
 )*/
 
 http.interceptors.response.use(res => {
+  if(res.status=='201')
+    Vue.prototype.$message({
+      type: 'success',
+      message: res.data.message
+    })
+  else if(res.status=='202')
+    Vue.prototype.$message({
+      type: 'warning',
+      message: res.data.message
+    })
   return res
 }, err => {
   //console.log(err)
   if (err.response.data.message) {
-    console.log(err.response.data.message)
-    this.prototype.$message({
+    //console.log(err.response.data.message)
+    Vue.prototype.$message({
       type: 'error',
       message: err.response.data.message
     })

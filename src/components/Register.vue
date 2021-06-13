@@ -44,7 +44,7 @@
             </div>
             <div class="col">
               <div class="type_block fbasis50">
-                <input type="text" v-model="Email" class="input w80" placeholder="E-mail" />
+                <input type="email" v-model="Email" class="input w80" placeholder="E-mail" />
                 <h2 class="label">E-mail</h2>
               </div>
             </div>

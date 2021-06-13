@@ -55,6 +55,7 @@ export default {
       ,'Request_Num': 3 ,'Poster_id': this.list.Poster_id1,'Poster_Item': this.list.Itemname
       ,'Poster_Num': this.list.ItemNum,'changed': 0}
       await this.$http.post('/rc_create.php',profile)
+      this.CloseSp()
     }
   }
 }
