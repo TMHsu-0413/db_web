@@ -55,7 +55,7 @@
               class="form-control"
               placeholder="地址"
               aria-label="address"
-              v-model="address"
+              v-model="Address"
             />
           </div>
         </div>
@@ -80,13 +80,13 @@ export default {
       Conpassword: null,
       Phone: null,
       Email: null,
-      address: null
+      Address: null
     }
   },
   methods: {
     async Revise() {
       if(this.password == this.Conpassword){
-        let profile = { 'id': Vue.cookies.get('id'),'Password':this.password,'Phone':this.Phone, 'Address':this.address ,'Email':this.Email }
+        let profile = { 'id': Vue.cookies.get('id'),'Password':this.password,'Phone':this.Phone, 'Address':this.Address ,'Email':this.Email }
         await this.$http.post('/user_revise.php',profile)
         this.$router.push('/admin')
       }

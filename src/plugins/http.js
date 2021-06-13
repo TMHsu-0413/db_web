@@ -1,6 +1,5 @@
 import axios from 'axios'
 import Vue from 'vue'
-import router from '../router/index.js'
 // http://DOMAIN.XX/
 // http://localhost:5000/
 const http = axios.create({
@@ -23,34 +22,5 @@ function (error) {
   return Promise.reject(error)
 }
 )
-
-http.interceptors.response.use(res => {
-  if (res.data.id) {
-    Vue.cookies.set('id', res.data.id)
-  }
-  if (typeof res.data.admin !== 'undefined') {
-    //console.log(!(typeof res.data.admin))
-    Vue.cookies.set('admin', res.data.admin)
-  }
-  return res
-}, err => {
-  console.log(err)
-  if (err.response.data.message) {
-    Vue.prototype.$message({
-      type: 'error',
-      message: err.response.data.message
-    })
-    /* if (err.response.status === 400 || err.response.status === 409) {
-      Vue.prototype.$message({
-        type: 'error',
-        message: err.response.data.message
-      })
-    } */
-    if (err.response.status === 401) {
-      router.push('/')
-    }
-  }
-  return Promise.reject(err)
-})
 
 export default http

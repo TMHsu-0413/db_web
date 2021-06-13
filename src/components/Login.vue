@@ -18,6 +18,7 @@
 </template>
 
 <script>
+import Vue from 'vue'
 export default {
   props: {
     CloseLogin: Function
@@ -33,6 +34,10 @@ export default {
       let profile = { "Account": this.Account,"Password": this.Password }
       this.$http.post('/user_login.php',profile)
       .then((res) =>{
+        if(res.data.id)
+          Vue.cookies.set('id', res.data.id)
+        if(res.data.admin)
+          Vue.cookies.set('admin', res.data.admin)
         if(res.data.admin=='1')
           this.$router.push('/admin')
         else if(res.data.admin == '0')

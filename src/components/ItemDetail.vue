@@ -54,7 +54,6 @@ export default {
       let profile = {'Request_id': Vue.cookies.get('id'),'Request_Item': '木頭'
       ,'Request_Num': 3 ,'Poster_id': this.list.Poster_id1,'Poster_Item': this.list.ItemName
       ,'Poster_Num': this.list.ItemNum,'changed': 0}
-      console.log(this.list)
       await this.$http.post('/rc_create.php',profile)
     }
   }
