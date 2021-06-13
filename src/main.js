@@ -7,10 +7,13 @@ import 'bootstrap-vue/dist/bootstrap-vue.css';
 import http from './plugins/http'
 import VueCookies from 'vue-cookies-ts'
 import router from './router/index.js'
+import ElementUI from 'element-ui'
+
 Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
 Vue.use(VueMeta)
 Vue.use(VueCookies)
+Vue.use(ElementUI)
 Vue.config.productionTip = false
 Vue.prototype.$http = http
 

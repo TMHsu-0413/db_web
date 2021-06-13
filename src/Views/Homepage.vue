@@ -3,6 +3,8 @@
     <header id="header">
       <div class="content">
         <div class="inner_text">
+            <el-button type="primary">主要按钮</el-button>
+
           易物媒合系統
         </div>
       </div>

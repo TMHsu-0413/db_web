@@ -9,18 +9,22 @@
               class="form-control"
               placeholder="重新設定密碼"
               aria-label="password"
+              v-model="password"
             />
           </div>
         </div>
-        <div class="row mt-3 mb-3 px-5">
+        <div class="row mt-3 mb-3 px-5 pre">
           <div class="type_block fbasis50">
             <input
               type="password"
               class="form-control"
               placeholder="確認密碼"
               aria-label="confirmpassword"
+              v-model="Conpassword"
             />
           </div>
+          <b-icon v-if="password != Conpassword" icon="x" class="ver red"></b-icon>
+          <b-icon v-else icon="check" class="ver green"></b-icon>
         </div>
         <div class="row mt-3 mb-3 px-5">
           <div class="type_block fbasis50">
@@ -29,6 +33,7 @@
               class="form-control"
               placeholder="電話"
               aria-label="Phone"
+              v-model="Phone"
             />
           </div>
         </div>
@@ -39,6 +44,7 @@
               class="form-control"
               placeholder="電子郵件"
               aria-label="mail"
+              v-model="Email"
             />
           </div>
         </div>
@@ -49,6 +55,7 @@
               class="form-control"
               placeholder="地址"
               aria-label="address"
+              v-model="Address"
             />
           </div>
         </div>
@@ -57,14 +64,43 @@
         <div class="row">
           <div class="col-7"></div>
           <div class="col">
-            <button type="button" class="btn btn-dark">確認修改</button>
+            <button type="button" class="btn btn-dark" @click="Revise">確認修改</button>
           </div>
         </div>
       </div>
     </div>
   </div>
 </template>
-
+<script>
+import Vue from 'vue'
+export default {
+  data() {
+    return {
+      password: null,
+      Conpassword: null,
+      Phone: null,
+      Email: null,
+      Address: null
+    }
+  },
+  methods: {
+    async Revise() {
+      if(this.password == this.Conpassword){
+        let profile = { 'id': Vue.cookies.get('id'),'Password':this.password,'Phone':this.Phone, 'Address':this.Address ,'Email':this.Email }
+        await this.$http.post('/user_revise.php',profile)
+        this.$router.push('/admin')
+      }
+    }
+  },
+  async created() {
+    let profile={ 'id': Vue.cookies.get('id') }
+    let res = await this.$http.post('/user_search_sp.php',profile)
+    this.Phone = res.data.Phone
+    this.Address = res.data.Address
+    this.Email = res.data.Email
+  }
+}
+</script>
 <style scoped>
 .bg {
   position: relative;
@@ -97,5 +133,20 @@
   border: none;
   border-radius: 5px;
   transition: all 0.3s;
+}
+.ver{
+  font-size: 1.5rem;
+  position: absolute;
+  right:-40%;
+  top:.5rem;
+}
+.pre{
+  position: relative;
+}
+.green{
+  color:green;
+}
+.red{
+  color:red;
 }
 </style>

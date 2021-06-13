@@ -34,7 +34,7 @@
             <router-link to="/CheckPost" class="nav-link">審核貼文</router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/ReviseInfo" class="nav-link"
+            <router-link to="/ReviseInfo_a" class="nav-link"
               >修改個人資料</router-link
             >
           </li>

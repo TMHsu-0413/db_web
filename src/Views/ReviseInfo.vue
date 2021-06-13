@@ -88,7 +88,10 @@ export default {
       if(this.password == this.Conpassword){
         let profile = { 'id': Vue.cookies.get('id'),'Password':this.password,'Phone':this.Phone, 'Address':this.Address ,'Email':this.Email }
         await this.$http.post('/user_revise.php',profile)
-        this.$router.push('/admin')
+        if(Vue.cookies.get('admin')=='1')
+          this.$router.push('/admin')
+        else
+          this.$router.push('/user')
       }
     }
   },

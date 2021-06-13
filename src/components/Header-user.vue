@@ -46,7 +46,7 @@
             >
           </li>
           <li class="nav-item">
-            <router-link to="/ReviseInfouser" class="nav-link"
+            <router-link to="/ReviseInfo_u" class="nav-link"
               >修改個人資料</router-link
             >
           </li>

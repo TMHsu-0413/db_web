@@ -10,7 +10,6 @@ import CheckPost from '../views/CheckPost'
 import TransRecords from '../views/TransRecords'
 import MyPost from '../views/MyPost'
 import PostRequest from '../views/PostRequest'
-import ReviseInfouser from '../views/ReviseInfouser'
 Vue.use(VueRouter)
 
 const routes = [
@@ -20,7 +19,7 @@ const routes = [
         component: Home,
         children: [
             { path: '/', component: MainPage_a },
-            { path: '/ReviseInfo', component: ReviseInfo },
+            { path: '/ReviseInfo_a', component: ReviseInfo },
             { path: '/CheckPost', component: CheckPost }
         ],
         meta: {
@@ -43,7 +42,7 @@ const routes = [
             { path: '/TransRecords', component: TransRecords },
             { path: '/MyPost', component: MyPost },
             { path: '/PostRequest', component: PostRequest },
-            { path: '/ReviseInfouser', component: ReviseInfouser }
+            { path: '/ReviseInfo_u', component: ReviseInfo}
         ],
         meta: {
             isPublic: true

@@ -52,7 +52,7 @@ export default {
   methods: {
     async add1() {
       let profile = {'Request_id': Vue.cookies.get('id'),'Request_Item': '木頭'
-      ,'Request_Num': 3 ,'Poster_id': this.list.Poster_id1,'Poster_Item': this.list.ItemName
+      ,'Request_Num': 3 ,'Poster_id': this.list.Poster_id1,'Poster_Item': this.list.Itemname
       ,'Poster_Num': this.list.ItemNum,'changed': 0}
       await this.$http.post('/rc_create.php',profile)
     }
