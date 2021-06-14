@@ -1,111 +1,113 @@
 <template>
-  <div class="form">
+  <form class="form" action="/php/post_image.php" method="post" enctype="multipart/form-data">
     <div class="close">
       <button class="closebtn" @click="Closeupload">&times;</button>
     </div>
     <div class="container">
-      <div class="row mt-2 mb-2 px-5">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="物品名稱"
-          aria-label="ItemName"
-        />
-      </div>
-      <div class="row mt-2 mb-2 px-5">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="物品數量"
-          aria-label="ItemNum"
-        />
-      </div>
-      <div class="row mt-2 mb-2 px-5">
-        <input
-          type="file"
-          class="form-control"
-          placeholder="物品照片"
-          aria-label="ItemPicture"
-        />
-      </div>
-      <div class="row mt-2 mb-2 px-5">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="物品所在地"
-          aria-label="ItemAddress"
-        />
-      </div>
-      <div class="row mt-2 mb-2 px-5">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="物品來源"
-          aria-label="ItemOrigin"
-        />
-      </div>
-      <div class="row mt-2 mb-2 px-5">
-        <textarea
-          class="form-control"
-          placeholder="物品目前狀況"
-          aria-label="ItemSituation"
-        ></textarea>
-      </div>
-      <h5 class="row mt-2 mb-2 px-5">若是超過時限無人交換,則:</h5>
-      <div class="row mt-2 mb-2 px-5">
-        <div class="col">
-          <div class="form-check form-check-inline">
-            <input
-              class="form-check-input"
-              type="radio"
-              name="inlineRadioOptions"
-              id="inlineRadio1"
-              value="option1"
-            />
-            <label class="form-check-label" for="inlineRadio1"
-              >捐贈至該系統</label
-            >
+        <div class="row mt-2 mb-2 px-5">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="物品名稱"
+            aria-label="ItemName"
+          />
+        </div>
+        <div class="row mt-2 mb-2 px-5">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="物品數量"
+            aria-label="ItemNum"
+          />
+        </div>
+        <div class="row mt-2 mb-2 px-5">
+          <input
+            type="file"
+            id="file"
+            name="file"
+            class="form-control"
+            placeholder="物品照片"
+            aria-label="ItemPicture"
+          />
+        </div>
+        <div class="row mt-2 mb-2 px-5">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="物品所在地"
+            aria-label="ItemAddress"
+          />
+        </div>
+        <div class="row mt-2 mb-2 px-5">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="物品來源"
+            aria-label="ItemOrigin"
+          />
+        </div>
+        <div class="row mt-2 mb-2 px-5">
+          <textarea
+            class="form-control"
+            placeholder="物品目前狀況"
+            aria-label="ItemSituation"
+          ></textarea>
+        </div>
+        <h5 class="row mt-2 mb-2 px-5">若是超過時限無人交換,則:</h5>
+        <div class="row mt-2 mb-2 px-5">
+          <div class="col">
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="inlineRadioOptions"
+                id="inlineRadio1"
+                value="option1"
+              />
+              <label class="form-check-label" for="inlineRadio1"
+                >捐贈至該系統</label
+              >
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="inlineRadioOptions"
+                id="inlineRadio2"
+                value="option2"
+              />
+              <label class="form-check-label" for="inlineRadio2">自行收回</label>
+            </div>
           </div>
         </div>
-        <div class="col">
-          <div class="form-check form-check-inline">
-            <input
-              class="form-check-input"
-              type="radio"
-              name="inlineRadioOptions"
-              id="inlineRadio2"
-              value="option2"
-            />
-            <label class="form-check-label" for="inlineRadio2">自行收回</label>
+        <div class="row mt-2 mb-2 px-5">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="想交換物品"
+            aria-label="WantItemName"
+          />
+        </div>
+        <div class="row mt-2 mb-2 px-5">
+          <textarea
+            class="form-control"
+            placeholder="想交換物品之狀況"
+            aria-label="WantItemSituation"
+          ></textarea>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col"></div>
+          <div class="col"></div>
+          <div class="col">
+            <button type="submit" class="btn btn-dark">上傳貼文</button>
           </div>
         </div>
-      </div>
-      <div class="row mt-2 mb-2 px-5">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="想交換物品"
-          aria-label="WantItemName"
-        />
-      </div>
-      <div class="row mt-2 mb-2 px-5">
-        <textarea
-          class="form-control"
-          placeholder="想交換物品之狀況"
-          aria-label="WantItemSituation"
-        ></textarea>
-      </div>
     </div>
-    <div class="container">
-      <div class="row">
-        <div class="col"></div>
-        <div class="col"></div>
-        <div class="col">
-          <button type="button" class="btn btn-dark" @click="upload">上傳貼文</button>
-        </div>
-      </div>
-    </div>
-  </div>
+  </form>
 </template>
 <script>
 export default {
@@ -113,8 +115,13 @@ export default {
     Closeupload: Function,
     Verify: Boolean
   },
+  data() {
+    return {
+      Imagename: null
+    }
+  },
   methods: {
-    upload() {
+    async upload() {
     }
   }
 };
