@@ -1,5 +1,5 @@
 <template>
-  <form class="form" action="/php/post_image.php" method="post" enctype="multipart/form-data">
+  <form class="form" target="iframe" action="http://localhost:80/php/post_image.php" method="post" enctype="multipart/form-data">
     <div class="close">
       <button class="closebtn" @click="Closeupload">&times;</button>
     </div>
@@ -10,6 +10,7 @@
             class="form-control"
             placeholder="物品名稱"
             aria-label="ItemName"
+            v-model="Itemname"
           />
         </div>
         <div class="row mt-2 mb-2 px-5">
@@ -18,6 +19,7 @@
             class="form-control"
             placeholder="物品數量"
             aria-label="ItemNum"
+            v-model="ItemNum"
           />
         </div>
         <div class="row mt-2 mb-2 px-5">
@@ -28,6 +30,7 @@
             class="form-control"
             placeholder="物品照片"
             aria-label="ItemPicture"
+            @change="getname"
           />
         </div>
         <div class="row mt-2 mb-2 px-5">
@@ -36,6 +39,7 @@
             class="form-control"
             placeholder="物品所在地"
             aria-label="ItemAddress"
+            v-model="ItemAddress"
           />
         </div>
         <div class="row mt-2 mb-2 px-5">
@@ -44,6 +48,7 @@
             class="form-control"
             placeholder="物品來源"
             aria-label="ItemOrigin"
+            v-model="ItemFrom"
           />
         </div>
         <div class="row mt-2 mb-2 px-5">
@@ -51,6 +56,7 @@
             class="form-control"
             placeholder="物品目前狀況"
             aria-label="ItemSituation"
+            v-model="ItemSituation"
           ></textarea>
         </div>
         <h5 class="row mt-2 mb-2 px-5">若是超過時限無人交換,則:</h5>
@@ -62,7 +68,8 @@
                 type="radio"
                 name="inlineRadioOptions"
                 id="inlineRadio1"
-                value="option1"
+                v-model="Donate"
+                value="0"
               />
               <label class="form-check-label" for="inlineRadio1"
                 >捐贈至該系統</label
@@ -76,7 +83,8 @@
                 type="radio"
                 name="inlineRadioOptions"
                 id="inlineRadio2"
-                value="option2"
+                v-model="Donate"
+                value="1"
               />
               <label class="form-check-label" for="inlineRadio2">自行收回</label>
             </div>
@@ -88,6 +96,7 @@
             class="form-control"
             placeholder="想交換物品"
             aria-label="WantItemName"
+            v-model="WantItemName"
           />
         </div>
         <div class="row mt-2 mb-2 px-5">
@@ -95,6 +104,7 @@
             class="form-control"
             placeholder="想交換物品之狀況"
             aria-label="WantItemSituation"
+            v-model="WantItemSituation"
           ></textarea>
         </div>
       </div>
@@ -103,13 +113,15 @@
           <div class="col"></div>
           <div class="col"></div>
           <div class="col">
-            <button type="submit" class="btn btn-dark">上傳貼文</button>
+            <button type="submit" class="btn btn-dark" @click="upload">上傳貼文</button>
           </div>
         </div>
     </div>
+    <iframe name="iframe" id="iframe" class="frame"></iframe>
   </form>
 </template>
 <script>
+import Vue from 'vue'
 export default {
   props: {
     Closeupload: Function,
@@ -117,11 +129,27 @@ export default {
   },
   data() {
     return {
-      Imagename: null
+      Itemname: null,
+      ItemNum: null,
+      ItemAddress: null,
+      ItemFrom: null,
+      ItemSituation:null,
+      Donate: null,
+      WantItemName: null,
+      WantItemSituation: null,
+      ImageName: null
     }
   },
   methods: {
     async upload() {
+      let profile = {"Itemname":this.Itemname,"ItemNum":this.ItemNum,"ItemAddress":this.ItemAddress,"ItemSituation":this.ItemSituation,
+                     "Donate":this.Donate,"Poster_id":Vue.cookies.get('id'),"WantItemName":this.WantItemName,"WantItemSituation":this.WantItemSituation,
+                     "Verify":'0',"ItemFrom":this.ItemFrom,"CanEdit":'1',"ImageName":this.ImageName }
+      await this.$http.post('/post_create.php',profile)
+      this.Closeupload()
+    },
+    getname(e) {
+      this.ImageName = 'php/image/' + e.target.files[0].name
     }
   }
 };
@@ -136,6 +164,9 @@ export default {
     opacity: 1;
     transform: translate(0);
   }
+}
+.frame{
+  display: none;
 }
 .form {
   position: absolute;

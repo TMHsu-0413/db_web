@@ -25,6 +25,10 @@
           <h4 v-if="list.WantItemName">想交換物品: {{list.WantItemName}}</h4>
           <h4 v-else>想交換物品: 無</h4>
         </div>
+        <div class="row mt-3 mb-3 flex">
+          <input type="text" class="input" v-model="Request_Item" placeholder="交換物品"/>
+          <input type="text" class="input" v-model="Request_Num" placeholder="交換數量"/>
+        </div>
         <div class="row mt-4 mb-3" v-if="btn">
           <div class="col-8">
             <button type="button" class="btn btn-primary px-md-4" @click="add1">
@@ -49,10 +53,16 @@ export default {
     CloseSp: Function,
     btn: Boolean
   },
+  data() {
+    return {
+      Request_Item: null,
+      Request_Num: null
+    }
+  },
   methods: {
     async add1() {
-      let profile = {'Request_id': Vue.cookies.get('id'),'Request_Item': '木頭'
-      ,'Request_Num': 3 ,'Poster_id': this.list.Poster_id1,'Poster_Item': this.list.Itemname
+      let profile = {'Request_id': Vue.cookies.get('id'),'Request_Item': this.Request_Item
+      ,'Request_Num': this.Request_Num ,'Poster_id': this.list.Poster_id1,'Poster_Item': this.list.Itemname
       ,'Poster_Num': this.list.ItemNum,'changed': 0}
       await this.$http.post('/rc_create.php',profile)
       this.CloseSp()
@@ -72,6 +82,16 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.flex{
+  display:flex;
+  justify-content: space-evenly;
+}
+.input{
+  width:40%;
+  outline: 0;
+  padding:.5rem 1rem;
+  border-radius: 20px;
 }
 
 .form {

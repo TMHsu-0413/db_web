@@ -89,6 +89,9 @@ export default {
     async disagree() {
       let profile = { 'id':this.list.id }
       await this.$http.post('/post_disagree.php',profile)
+      profile = { 'userid':this.list.Poster_id2,"itemName":this.list.Itemname }
+      console.log(profile)
+      await this.$http.post('/email.php',profile)
       this.CloseSp()
       await this.show()
     }
