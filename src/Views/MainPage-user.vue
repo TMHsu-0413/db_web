@@ -36,7 +36,8 @@ export default {
   },
   methods: {
     async show() {
-      const all = await this.$http.get("/post_search_mainpage.php");
+      let profile = { 'id':Vue.cookies.get('id')}
+      const all = await this.$http.post("/post_search_mainpage.php",profile);
       this.list = all.data;
     },
     async ItemDetail(id) {
