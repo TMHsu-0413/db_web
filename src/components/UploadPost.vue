@@ -149,7 +149,7 @@ export default {
       this.Closeupload()
     },
     getname(e) {
-      this.ImageName = 'php/image/' + e.target.files[0].name
+      this.ImageName = '../php/image/' + e.target.files[0].name
     }
   }
 };

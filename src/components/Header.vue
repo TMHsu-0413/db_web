@@ -39,6 +39,11 @@
             >
           </li>
           <li class="nav-item">
+            <router-link to="/E_download" class="nav-link"
+              >資料表Excel下載</router-link
+            >
+          </li>
+          <li class="nav-item">
             <a class="nav-link cursor" @click="Reg">新增管理者</a>
           </li>
         </ul>

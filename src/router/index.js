@@ -10,6 +10,7 @@ import CheckPost from '../views/CheckPost'
 import TransRecords from '../views/TransRecords'
 import MyPost from '../views/MyPost'
 import PostRequest from '../views/PostRequest'
+import Excelpage from '../views/Excelpage'
 Vue.use(VueRouter)
 
 const routes = [
@@ -20,7 +21,8 @@ const routes = [
         children: [
             { path: '/', component: MainPage_a },
             { path: '/ReviseInfo_a', component: ReviseInfo },
-            { path: '/CheckPost', component: CheckPost }
+            { path: '/CheckPost', component: CheckPost },
+            { path: '/E_download', component: Excelpage }
         ],
         meta: {
             isPublic: true

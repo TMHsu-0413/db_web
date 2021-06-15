@@ -9,7 +9,6 @@
           <th class="text-middle">交易數量</th>
           <th class="text-middle">想交換物品</th>
           <th class="text-middle">想交換數量</th>
-          <th class="text-middle">詳細</th>
           <th class="text-middle">是否交換</th>
         </tr>
       </thead>
