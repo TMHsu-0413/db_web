@@ -1,16 +1,16 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../Views/Home.vue'
-import User from '../Views/User.vue'
-import Homepage from '../Views/Homepage.vue'
-import MainPage_a from '../Views/MainPage-admin.vue'
-import MainPage_u from '../Views/MainPage-user.vue'
-import ReviseInfo from '../Views/ReviseInfo.vue'
-import CheckPost from '../Views/CheckPost'
-import TransRecords from '../Views/TransRecords'
-import MyPost from '../Views/MyPost'
-import PostRequest from '../Views/PostRequest'
-import Excelpage from '../Views/Excelpage'
+import Home from '../views/Home.vue'
+import User from '../views/User.vue'
+import Homepage from '../views/Homepage.vue'
+import MainPage_a from '../views/MainPage-admin.vue'
+import MainPage_u from '../views/MainPage-user.vue'
+import ReviseInfo from '../views/ReviseInfo.vue'
+import CheckPost from '../views/CheckPost'
+import TransRecords from '../views/TransRecords'
+import MyPost from '../views/MyPost'
+import PostRequest from '../views/PostRequest'
+import Excelpage from '../views/Excelpage'
 Vue.use(VueRouter)
 
 const routes = [
@@ -58,12 +58,12 @@ const router = new VueRouter({
     Homepage,
     User
 })
-/*
+
 router.beforeEach((to, from, next) => {
     if (!to.meta.isPublic && !Vue.cookies.get('admin')) {
         return next('/')
     }
     next()
 })
-*/
+
 export default router
