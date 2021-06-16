@@ -1,50 +1,60 @@
 <template>
   <div class="container-fluid bg flex">
-    <table class="table width60 table-hover">
-      <thead class="white fs2">
-        <tr>
-          <th scope="th">#</th>
-          <th class="text-middle">交易物品名稱</th>
-          <th class="text-middle">交易配對者</th>
-          <th class="text-middle">交易數量</th>
-          <th class="text-middle">交易結果</th>
-        </tr>
-      </thead>
-      <tbody class="white1 fs1">
-        <tr v-for="(item, idx) in list" :key="'item' + idx">
-          <th scope="row">{{ idx }}</th>
-          <th class="text-middle">{{ item.Itemname }}</th>
-          <th class="text-middle">{{ item.Name }}</th>
-          <th class="text-middle">{{ item.ItemNum }}</th>
-          <th class="text-middle">
-            <b-icon v-if="item.success=='1'" icon="check" class="cursor green"></b-icon>
-            <b-icon v-else-if="item.success=='0'" icon="x" class="cursor red"></b-icon>
-            <b-icon v-else icon="dash" class="cursor gray"></b-icon>
-          </th>
-        </tr>
-      </tbody>
-    </table>
+    <div class="container center">
+      <table class="table width60 table-hover">
+        <thead class="white fs2">
+          <tr>
+            <th scope="th">#</th>
+            <th class="text-middle">交易物品名稱</th>
+            <th class="text-middle">交易配對者</th>
+            <th class="text-middle">交易數量</th>
+            <th class="text-middle">交易結果</th>
+          </tr>
+        </thead>
+        <tbody class="white1 fs1">
+          <tr v-for="(item, idx) in list" :key="'item' + idx">
+            <th scope="row">{{ idx }}</th>
+            <th class="text-middle">{{ item.Itemname }}</th>
+            <th class="text-middle">{{ item.Name }}</th>
+            <th class="text-middle">{{ item.ItemNum }}</th>
+            <th class="text-middle">
+              <b-icon
+                v-if="item.success == '1'"
+                icon="check"
+                class="cursor green"
+              ></b-icon>
+              <b-icon
+                v-else-if="item.success == '0'"
+                icon="x"
+                class="cursor red"
+              ></b-icon>
+              <b-icon v-else icon="dash" class="cursor gray"></b-icon>
+            </th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </template>
 
 <script>
-import Vue from 'vue'
+import Vue from "vue";
 export default {
   data() {
     return {
-      list: []
+      list: [],
     };
   },
   methods: {
     async show() {
-      let profile = { 'id':Vue.cookies.get('id') }
-      const res =await this.$http.post('/request_record.php',profile)
-      this.list=res.data
-    }
+      let profile = { id: Vue.cookies.get("id") };
+      const res = await this.$http.post("/request_record.php", profile);
+      this.list = res.data;
+    },
   },
   created() {
-    this.show()
-  }
+    this.show();
+  },
 };
 </script>
 
@@ -92,13 +102,19 @@ export default {
 .cursor {
   cursor: pointer;
 }
-.green{
-  color:green;
+.green {
+  color: green;
 }
-.red{
-  color:red;
+.red {
+  color: red;
 }
-.gray{
-  color:gray;
+.gray {
+  color: gray;
+}
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: top;
+  align-items: center;
 }
 </style>

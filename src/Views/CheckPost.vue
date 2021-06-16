@@ -1,63 +1,76 @@
 <template>
   <div class="container-fluid bg flex">
     <div v-if="openSp" class="bg-black">
-    <CheckPostDetail :list="sp_list" :CloseSp="CloseSp" :show="show"></CheckPostDetail>
+      <CheckPostDetail
+        :list="sp_list"
+        :CloseSp="CloseSp"
+        :show="show"
+      ></CheckPostDetail>
     </div>
-    <table class="table width60 table-hover" v-else>
-      <thead class="white fs2">
-        <tr>
-          <th scope="th">#</th>
-          <th class="text-middle">物品名稱</th>
-          <th class="text-middle">上傳者</th>
-          <th class="text-middle">數量</th>
-          <th class="text-middle">詳細</th>
-        </tr>
-      </thead>
-      <tbody class="white1 fs1">
-        <tr v-for="(item,idx) in list" :key="'item'+idx">
-          <th scope="row">{{idx}}</th>
-          <th class="text-middle">{{item.Itemname}}</th>
-          <th class="text-middle">{{item.poster}}</th>
-          <th class="text-middle">{{item.ItemNum}}</th>
-          <th class="text-middle"><b-icon @click="specified(item.id)" icon="file-earmark-medical-fill" class="cursor"></b-icon></th>
-        </tr>
-      </tbody>
-    </table>
+    <div class="container center">
+      <table class="table width60 table-hover">
+        <thead class="white fs2">
+          <tr>
+            <th scope="th">#</th>
+            <th class="text-middle">物品名稱</th>
+            <th class="text-middle">上傳者</th>
+            <th class="text-middle">數量</th>
+            <th class="text-middle">詳細</th>
+          </tr>
+        </thead>
+
+        <tbody class="white1 fs1">
+          <tr v-for="(item, idx) in list" :key="'item' + idx">
+            <th scope="row">{{ idx }}</th>
+            <th class="text-middle">{{ item.Itemname }}</th>
+            <th class="text-middle">{{ item.poster }}</th>
+            <th class="text-middle">{{ item.ItemNum }}</th>
+            <th class="text-middle">
+              <b-icon
+                @click="specified(item.id)"
+                icon="file-earmark-medical-fill"
+                class="cursor"
+              ></b-icon>
+            </th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </template>
 
 <script>
-import CheckPostDetail from '../components/CheckPostDetail'
+import CheckPostDetail from "../components/CheckPostDetail";
 export default {
-  data () {
+  data() {
     return {
       list: [],
       sp_list: [],
-      openSp: false
-    }
+      openSp: false,
+    };
   },
   components: {
-    CheckPostDetail
+    CheckPostDetail,
   },
   methods: {
     async show() {
-      const res = await this.$http.get('/post_search_checkpost.php')
-      this.list = res.data
+      const res = await this.$http.get("/post_search_checkpost.php");
+      this.list = res.data;
     },
-    async specified (idx) {
-      let profile = { 'id':idx }
-      const res = await this.$http.post('/post_search_sp.php',profile)
-      this.sp_list = res.data
-      this.openSp = true
+    async specified(idx) {
+      let profile = { id: idx };
+      const res = await this.$http.post("/post_search_sp.php", profile);
+      this.sp_list = res.data;
+      this.openSp = true;
     },
     CloseSp() {
-      this.openSp = false
-    }
+      this.openSp = false;
+    },
   },
   created() {
-    this.show()
-  }
-}
+    this.show();
+  },
+};
 </script>
 
 <style scoped>
@@ -68,23 +81,23 @@ export default {
   background-size: cover;
   height: 100vh;
   width: 100%;
-  padding:0 1rem;
+  padding: 0 1rem;
 }
-.flex{
+.flex {
   display: flex;
   justify-content: center;
 }
 .white {
   color: white;
 }
-.white1{
-  color:rgba(193, 196, 197, 0.931)
+.white1 {
+  color: rgba(193, 196, 197, 0.931);
 }
 .bg-black {
   position: fixed;
-  left:0;
-  top:0;
-  background-color: rgba(0,0,0,.65);
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.65);
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -97,22 +110,28 @@ export default {
   justify-content: center;
   align-items: center;
 }
-.text-middle{
+.text-middle {
   text-align: center;
 }
-.padding1{
-  padding:1rem .3rem;
+.padding1 {
+  padding: 1rem 0.3rem;
 }
-.fs2{
-  font-size:2rem;
+.fs2 {
+  font-size: 2rem;
 }
-.fs1{
-  font-size:1rem;
+.fs1 {
+  font-size: 1rem;
 }
-.width60{
-  width:60%;
+.width60 {
+  width: 60%;
 }
-.cursor{
-  cursor:pointer;
+.cursor {
+  cursor: pointer;
+}
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: top;
+  align-items: center;
 }
 </style>
