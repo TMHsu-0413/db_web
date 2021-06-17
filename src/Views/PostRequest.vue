@@ -25,14 +25,14 @@
               <button
                 type="button"
                 class="btn btn-success mx-2"
-                @click="agree(item.id)"
+                @click="agree(item.id,item.Poster_primary)"
               >
                 願意
               </button>
               <button
                 type="button"
                 class="btn btn-danger"
-                @click="disagree(item.id)"
+                @click="disagree(item.id,item.Poster_primary)"
               >
                 拒絕
               </button>
@@ -50,7 +50,7 @@ export default {
   data() {
     return {
       list: [],
-      sp_list: [],
+      sp_list: []
     };
   },
   methods: {
@@ -59,14 +59,18 @@ export default {
       const res = await this.$http.post("/post_request.php", profile);
       this.list = res.data;
     },
-    async agree(idx) {
+    async agree(idx,primary) {
       let profile = { id: idx };
       await this.$http.post("/request_agree.php", profile);
+      profile = { id: primary };
+      await this.$http.post('/post_tradetozero.php',profile);
       this.show();
     },
-    async disagree(idx) {
+    async disagree(idx,primary) {
       let profile = { id: idx };
       await this.$http.post("/request_disagree.php", profile);
+      profile = { id: primary };
+      await this.$http.post('/post_tradetozero.php',profile);
       this.show();
     },
   },

@@ -73,8 +73,10 @@ export default {
       else{
         let profile = {'Request_id': Vue.cookies.get('id'),'Request_Item': this.Request_Item
         ,'Request_Num': this.Request_Num ,'Poster_id': this.list.Poster_id1,'Poster_Item': this.list.Itemname
-        ,'Poster_Num': this.Want_Num,'changed': 0}
+        ,'Poster_Num': this.Want_Num,'changed': 0,'Poster_primary':this.list.id}
         await this.$http.post('/rc_create.php',profile)
+        profile = {'id': this.list.id}
+        await this.$http.post('/post_tradetoone.php',profile)
         this.CloseSp()
       }
     }

@@ -144,7 +144,7 @@ export default {
     async upload() {
       let profile = {"Itemname":this.Itemname,"ItemNum":this.ItemNum,"ItemAddress":this.ItemAddress,"ItemSituation":this.ItemSituation,
                      "Donate":this.Donate,"Poster_id":Vue.cookies.get('id'),"WantItemName":this.WantItemName,"WantItemSituation":this.WantItemSituation,
-                     "Verify":'0',"ItemFrom":this.ItemFrom,"CanEdit":'1',"ImageName":this.ImageName }
+                     "Verify":'0',"ItemFrom":this.ItemFrom,"CanEdit":'1',"ImageName":this.ImageName,'trade':'0' }
       await this.$http.post('/post_create.php',profile)
       this.Closeupload()
     },
