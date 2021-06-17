@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid bg flex">
     <div class="container center">
-      <table class="table width60 table-hover">
+      <table class="table width80 table-hover">
         <thead class="white fs2">
           <tr>
             <th scope="th">#</th>
@@ -21,9 +21,6 @@
             <th class="text-middle">{{ item.Request_Num }}</th>
             <th class="text-middle">{{ item.Poster_Item }}</th>
             <th class="text-middle">{{ item.Poster_Num }}</th>
-            <th class="text-middle">
-              <b-icon icon="file-earmark-medical-fill" class="cursor"></b-icon>
-            </th>
             <th class="col-2">
               <button
                 type="button"
@@ -117,8 +114,8 @@ export default {
 .fs1 {
   font-size: 1rem;
 }
-.width60 {
-  width: 60%;
+.width80 {
+  width: 80%;
 }
 .cursor {
   cursor: pointer;

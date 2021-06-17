@@ -12,8 +12,9 @@
         <div class="row mt-3 mb-3">
           <h4>物品外觀說明 : {{list.ItemSituation}}</h4>
         </div>
-        <div class="row mt-3 mb-3">
-          <h4>物品數量: {{list.ItemNum}}</h4>
+        <div class="row mt-3 mb-3 flex">
+          <span class="fs input fb">物品數量: {{list.ItemNum}}</span>
+          <input type="text" placeholder="想交換數量" class="input self" v-model="Want_Num" />
         </div>
         <div class="row mt-3 mb-3">
           <h4>物品所在地: {{list.ItemAddress}}</h4>
@@ -25,7 +26,7 @@
           <h4 v-if="list.WantItemName">想交換物品: {{list.WantItemName}}</h4>
           <h4 v-else>想交換物品: 無</h4>
         </div>
-        <div class="row mt-3 mb-3 flex">
+        <div class="row mt-3 mb-3 flex-se">
           <input type="text" class="input" v-model="Request_Item" placeholder="交換物品"/>
           <input type="text" class="input" v-model="Request_Num" placeholder="交換數量"/>
         </div>
@@ -56,16 +57,26 @@ export default {
   data() {
     return {
       Request_Item: null,
-      Request_Num: null
+      Request_Num: null,
+      Want_Num: null
     }
   },
   methods: {
     async add1() {
-      let profile = {'Request_id': Vue.cookies.get('id'),'Request_Item': this.Request_Item
-      ,'Request_Num': this.Request_Num ,'Poster_id': this.list.Poster_id1,'Poster_Item': this.list.Itemname
-      ,'Poster_Num': this.list.ItemNum,'changed': 0}
-      await this.$http.post('/rc_create.php',profile)
-      this.CloseSp()
+      console.log(this.Want_Num,this.list.ItemNum)
+      if(this.Want_Num > this.list.ItemNum){
+        Vue.prototype.$message({
+          type: 'error',
+          message: '想交換數量超過貼文上限'
+        })
+      }
+      else{
+        let profile = {'Request_id': Vue.cookies.get('id'),'Request_Item': this.Request_Item
+        ,'Request_Num': this.Request_Num ,'Poster_id': this.list.Poster_id1,'Poster_Item': this.list.Itemname
+        ,'Poster_Num': this.Want_Num,'changed': 0}
+        await this.$http.post('/rc_create.php',profile)
+        this.CloseSp()
+      }
     }
   }
 }
@@ -83,9 +94,21 @@ export default {
   align-items: center;
   justify-content: center;
 }
-.flex{
+.fs{
+  font-size: 1.5rem;
+}
+.fb{
+  flex-basis: 50%;
+}
+.ml{
+  margin-left: -.7%;
+}
+.flex-se{
   display:flex;
   justify-content: space-evenly;
+}
+.flex{
+  display: flex;
 }
 .input{
   width:40%;
@@ -93,7 +116,10 @@ export default {
   padding:.5rem 1rem;
   border-radius: 20px;
 }
-
+.self{
+  justify-self: flex-end;
+  align-self: center;
+}
 .form {
   position: relative;
   padding: 2rem 2rem;
