@@ -3,7 +3,7 @@ import Vue from 'vue'
 // http://DOMAIN.XX/
 // http://localhost:5000/
 const http = axios.create({
-  baseURL: process.env.VUE_APP_API_URL || '/php'
+  baseURL: process.env.VUE_APP_API_URL || './php'
 })
 
 /*http.interceptors.request.use(function (config) {

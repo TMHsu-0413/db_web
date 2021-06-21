@@ -60,7 +60,7 @@ export default {
       this.list = res.data;
     },
     async agree(idx,primary) {
-      let profile = { id: idx };
+      let profile = { id: idx,primary: primary };
       await this.$http.post("/request_agree.php", profile);
       profile = { id: primary };
       await this.$http.post('/post_tradetozero.php',profile);

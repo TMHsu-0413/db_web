@@ -63,8 +63,8 @@ export default {
   },
   methods: {
     async add1() {
-      console.log(this.Want_Num,this.list.ItemNum)
-      if(this.Want_Num > this.list.ItemNum){
+      //console.log(typeof this.Want_Num,typeof this.list.ItemNum)
+      if(parseInt(this.Want_Num) > parseInt(this.list.ItemNum)){
         Vue.prototype.$message({
           type: 'error',
           message: '想交換數量超過貼文上限'

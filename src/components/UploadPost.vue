@@ -1,5 +1,5 @@
 <template>
-  <form class="form" target="iframe" action="http://localhost:80/php/post_image.php" method="post" enctype="multipart/form-data">
+  <form class="form" target="iframe" action="./php/post_image.php" method="post" enctype="multipart/form-data">
     <div class="close">
       <button class="closebtn" @click="Closeupload">&times;</button>
     </div>
@@ -149,7 +149,7 @@ export default {
       this.Closeupload()
     },
     getname(e) {
-      this.ImageName = '../php/image/' + e.target.files[0].name
+      this.ImageName = './php/image/' + e.target.files[0].name
     }
   }
 };

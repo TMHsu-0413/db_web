@@ -11,7 +11,7 @@
         <tr>
           <th class="text-middle">用戶資料</th>
           <th class="text-middle">
-            <form action="http://localhost/php/excel_user.php" method="post">
+            <form action="./php/excel_user.php" method="post">
               <button type="submit" class="btn"><b-icon ty icon="file-earmark-medical-fill" class="cursor white"></b-icon></button>
             </form>
           </th>
@@ -19,7 +19,7 @@
         <tr>
           <th class="text-middle">貼文資料</th>
           <th class="text-middle">
-            <form action="http://localhost/php/excel_post.php" method="post">
+            <form action="./php/excel_post.php" method="post">
               <button type="submit" class="btn"><b-icon ty icon="file-earmark-medical-fill" class="cursor white"></b-icon></button>
             </form>
           </th>
@@ -27,7 +27,7 @@
         <tr>
           <th class="text-middle">交易紀錄資料</th>
           <th class="text-middle">
-            <form action="http://localhost/php/excel_change.php" method="post">
+            <form action="./php/excel_change.php" method="post">
               <button type="submit" class="btn"><b-icon ty icon="file-earmark-medical-fill" class="cursor white"></b-icon></button>
             </form>
           </th>
